@@ -1,0 +1,6 @@
+# Lab scope -- the ONLY things you are allowed to test.
+# Anything not listed here is OUT OF SCOPE (router .1, phones, TVs, other PCs).
+domain  seclab.test
+range   192.168.1.248/29   # lab block: .248 - .255 (see NETWORK.md)
+host    192.168.1.249      # Kali (attacker, also runs lab DNS)
+host    192.168.1.250      # Windows laptop (target)

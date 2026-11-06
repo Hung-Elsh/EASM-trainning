@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nmap_host.schema.json",
+  "title": "python-nmap host result",
+  "description": "One host as returned by nmap.PortScanner()[ip] and saved by scanner_easm.py (nmap_scan_<ip>_result.json).",
+  "type": "object",
+  "required": ["addresses", "status"],
+  "properties": {
+    "hostnames": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string", "description": "user, PTR, or empty" }
+        }
+      }
+    },
+    "addresses": {
+      "type": "object",
+      "properties": {
+        "ipv4": { "type": "string", "format": "ipv4" },
+        "ipv6": { "type": "string", "format": "ipv6" },
+        "mac": { "type": "string", "pattern": "^([0-9A-F]{2}:){5}[0-9A-F]{2}$" }
+      }
+    },
+    "vendor": {
+      "type": "object",
+      "description": "MAC address -> hardware vendor (only on the local network)",
+      "additionalProperties": { "type": "string" }
+    },
+    "status": {
+      "type": "object",
+      "required": ["state"],
+      "properties": {
+        "state": { "enum": ["up", "down", "unknown", "skipped"] },
+        "reason": { "type": "string", "description": "e.g. arp-response, echo-reply, user-set (-Pn)" }
+      }
+    },
+    "uptime": {
+      "type": "object",
+      "properties": {
+        "seconds": { "type": "string" },
+        "lastboot": { "type": "string" }
+      }
+    },
+    "osmatch": {
+      "type": "array",
+      "description": "Only present with -O",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "accuracy": { "type": "string" }
+        }
+      }
+    },
+    "tcp": { "$ref": "#/$defs/portTable" },
+    "udp": { "$ref": "#/$defs/portTable" }
+  },
+  "$defs": {
+    "portTable": {
+      "type": "object",
+      "description": "Port number (as a string) -> port result. Only ports nmap reports are listed; 'Not shown' ports are absent.",
+      "propertyNames": { "pattern": "^[0-9]{1,5}$" },
+      "additionalProperties": { "$ref": "#/$defs/port" }
+    },
+    "port": {
+      "type": "object",
+      "required": ["state"],
+      "properties": {
+        "state": { "enum": ["open", "closed", "filtered", "unfiltered", "open|filtered", "closed|filtered"] },
+        "reason": { "type": "string", "description": "e.g. syn-ack, reset, no-response" },
+        "name": { "type": "string", "description": "Service name guess, e.g. http, msrpc" },
+        "product": { "type": "string", "description": "Software (needs -sV)" },
+        "version": { "type": "string" },
+        "extrainfo": { "type": "string" },
+        "conf": { "type": "string", "description": "Confidence 0-10; 3 = guessed from port number only, 10 = confirmed by probe" },
+        "cpe": { "type": "string" },
+        "script": {
+          "type": "object",
+          "description": "NSE script id -> output text (needs -sC or --script)",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    }
+  }
+}

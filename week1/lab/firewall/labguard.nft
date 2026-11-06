@@ -1,0 +1,13 @@
+# Lab guard: Kali may talk to the lab block, the router only for DNS/DHCP,
+# and nothing else on the home LAN. Internet traffic is untouched.
+# Load:   sudo nft -f labguard.nft
+# Remove: sudo nft delete table inet labguard
+table inet labguard {
+  chain out {
+    type filter hook output priority 0; policy accept;
+    ip daddr 192.168.1.248/29 accept
+    ip daddr 192.168.1.1 udp dport { 53, 67 } accept
+    ip daddr 192.168.1.1 tcp dport 53 accept
+    ip daddr 192.168.1.0/24 log prefix "LABGUARD " drop
+  }
+}

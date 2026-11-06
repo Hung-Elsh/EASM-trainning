@@ -1,0 +1,16 @@
+# Environments and caches
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets and settings (week2/.env.example is the template)
+week2/.env
+
+# Generated scan output and logs: real host details, and the pipeline can recreate them
+week1/scans/
+week2/scans/
+week1/lab/logs/
+paused.conf
+
+# Third-party document, kept local
+*.docx
