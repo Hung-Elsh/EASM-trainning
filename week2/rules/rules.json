@@ -1,0 +1,912 @@
+{
+  "schema_version": 1,
+  "rules": [
+    {
+      "id": "mysql-empty-password",
+      "severity": "critical",
+      "title": "MySQL account with no password",
+      "confidence": "confirmed",
+      "remediation": "Set a strong password and block 3306 from outside",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "mysql-empty-password",
+          "any": [
+            "has empty password"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "redis-no-auth",
+      "severity": "high",
+      "title": "Redis answers without a password",
+      "confidence": "confirmed",
+      "remediation": "Enable requirepass or ACLs and bind Redis to a private interface",
+      "when": [
+        {
+          "op": "data_exists",
+          "script": "redis-info",
+          "path": [
+            "Version"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mongodb-no-auth",
+      "severity": "high",
+      "title": "MongoDB lists databases without a login",
+      "confidence": "confirmed",
+      "remediation": "Enable authorization and block 27017 from outside",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "mongodb-databases",
+          "any": [
+            "name ="
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memcached-no-auth",
+      "severity": "high",
+      "title": "Memcached answers without authentication",
+      "confidence": "confirmed",
+      "remediation": "Bind Memcached to localhost or a private interface",
+      "when": [
+        {
+          "op": "data_in",
+          "script": "memcached-info",
+          "path": [
+            "Authentication"
+          ],
+          "values": [
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memcached-udp",
+      "severity": "medium",
+      "title": "Memcached open on UDP (DDoS amplification)",
+      "confidence": "confirmed",
+      "remediation": "Disable UDP with -U 0",
+      "when": [
+        {
+          "op": "service_in",
+          "names": [
+            "memcache",
+            "memcached"
+          ]
+        },
+        {
+          "op": "protocol_is",
+          "protocol": "udp"
+        },
+        {
+          "op": "script_ran",
+          "script": "memcached-info"
+        }
+      ]
+    },
+    {
+      "id": "elasticsearch-no-auth",
+      "severity": "high",
+      "title": "Elasticsearch answers without a login",
+      "confidence": "confirmed",
+      "remediation": "Enable Elasticsearch security and block 9200 from outside",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:elasticsearch"
+        }
+      ]
+    },
+    {
+      "id": "postgres-exposed",
+      "severity": "medium",
+      "title": "PostgreSQL reachable from the network",
+      "confidence": "likely",
+      "remediation": "Block 5432 from outside and require password or certificate auth",
+      "when": [
+        {
+          "op": "service_in",
+          "names": [
+            "postgresql"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mssql-exposed",
+      "severity": "medium",
+      "title": "Microsoft SQL Server reachable from the network",
+      "confidence": "likely",
+      "remediation": "Block 1433 from outside and use strong sa credentials",
+      "when": [
+        {
+          "op": "service_in",
+          "names": [
+            "ms-sql-s"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ftp-anonymous",
+      "severity": "high",
+      "title": "Anonymous FTP login allowed",
+      "confidence": "confirmed",
+      "remediation": "Disable anonymous login, or use SFTP",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "ftp-anon",
+          "any": [
+            "Anonymous FTP login allowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "telnet-exposed",
+      "severity": "high",
+      "title": "Telnet sends logins in cleartext",
+      "confidence": "confirmed",
+      "remediation": "Disable Telnet and use SSH",
+      "when": [
+        {
+          "op": "service_in",
+          "names": [
+            "telnet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ssh-password-auth",
+      "severity": "low",
+      "title": "SSH allows password login",
+      "confidence": "confirmed",
+      "remediation": "Use public keys only and disable password login",
+      "when": [
+        {
+          "op": "data_contains",
+          "script": "ssh-auth-methods",
+          "path": [
+            "Supported authentication methods"
+          ],
+          "any": [
+            "password"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vnc-no-auth",
+      "severity": "high",
+      "title": "VNC requires no authentication",
+      "confidence": "confirmed",
+      "remediation": "Require authentication and tunnel VNC through a VPN or SSH",
+      "when": [
+        {
+          "op": "data_contains",
+          "script": "vnc-info",
+          "path": [
+            "WARNING"
+          ],
+          "any": [
+            "does not require authentication"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rdp-exposed",
+      "severity": "medium",
+      "title": "Remote Desktop reachable from the network",
+      "confidence": "likely",
+      "remediation": "Put RDP behind a VPN and require NLA",
+      "when": [
+        {
+          "op": "service_in",
+          "names": [
+            "ms-wbt-server"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smb-signing-not-required",
+      "severity": "medium",
+      "title": "SMB signing not required",
+      "confidence": "confirmed",
+      "remediation": "Require SMB signing",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "smb2-security-mode",
+          "any": [
+            "not required"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smb1-enabled",
+      "severity": "high",
+      "title": "SMBv1 enabled",
+      "confidence": "confirmed",
+      "remediation": "Disable SMBv1",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "smb-protocols",
+          "any": [
+            "NT LM 0.12"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tls-cert-expired",
+      "severity": "medium",
+      "title": "TLS certificate expired",
+      "confidence": "confirmed",
+      "remediation": "Renew the certificate and automate renewal",
+      "when": [
+        {
+          "op": "data_date_past",
+          "script": "ssl-cert",
+          "path": [
+            "validity",
+            "notAfter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tls-cert-self-signed",
+      "severity": "low",
+      "title": "TLS certificate is self-signed",
+      "confidence": "confirmed",
+      "remediation": "Use a certificate from a trusted CA",
+      "when": [
+        {
+          "op": "data_equal",
+          "script": "ssl-cert",
+          "path_a": [
+            "subject"
+          ],
+          "path_b": [
+            "issuer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tls-old-protocol",
+      "severity": "medium",
+      "title": "Old TLS versions enabled",
+      "confidence": "confirmed",
+      "remediation": "Allow only TLS 1.2 and 1.3",
+      "when": [
+        {
+          "op": "data_has_any_key",
+          "script": "ssl-enum-ciphers",
+          "keys": [
+            "SSLv3",
+            "TLSv1.0",
+            "TLSv1.1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tls-weak-ciphers",
+      "severity": "medium",
+      "title": "Weak TLS ciphers offered",
+      "confidence": "confirmed",
+      "remediation": "Remove ciphers graded below A or B",
+      "when": [
+        {
+          "op": "data_in",
+          "script": "ssl-enum-ciphers",
+          "path": [
+            "least strength"
+          ],
+          "values": [
+            "C",
+            "D",
+            "E",
+            "F"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tls-missing-hsts",
+      "severity": "low",
+      "title": "No HSTS header on a TLS site",
+      "confidence": "confirmed",
+      "remediation": "Add the Strict-Transport-Security header",
+      "when": [
+        {
+          "op": "data_exists",
+          "script": "ssl-cert",
+          "path": [
+            "validity",
+            "notAfter"
+          ],
+          "silent": true
+        },
+        {
+          "op": "script_lacks",
+          "script": "http-headers",
+          "all": [
+            "strict-transport-security"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "web-missing-security-headers",
+      "severity": "low",
+      "title": "Security headers missing",
+      "confidence": "confirmed",
+      "remediation": "Add X-Frame-Options, X-Content-Type-Options and Content-Security-Policy",
+      "when": [
+        {
+          "op": "script_lacks",
+          "script": "http-headers",
+          "all": [
+            "x-frame-options",
+            "x-content-type-options",
+            "content-security-policy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "web-version-disclosure",
+      "severity": "low",
+      "title": "Web server shows its version",
+      "confidence": "confirmed",
+      "remediation": "Hide version details in the Server header",
+      "when": [
+        {
+          "op": "script_matches",
+          "script": "http-headers",
+          "pattern": "^\\s*server:.*[0-9]"
+        }
+      ]
+    },
+    {
+      "id": "web-cors-wildcard",
+      "severity": "low",
+      "title": "CORS allows any origin",
+      "confidence": "confirmed",
+      "remediation": "Allow only trusted origins",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "http-headers",
+          "any": [
+            "access-control-allow-origin: *"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "web-cookie-no-httponly",
+      "severity": "medium",
+      "title": "Session cookie without HttpOnly",
+      "confidence": "confirmed",
+      "remediation": "Set HttpOnly, Secure and SameSite on session cookies",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "http-cookie-flags",
+          "any": [
+            "httponly flag not set"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "web-trace-enabled",
+      "severity": "medium",
+      "title": "HTTP TRACE enabled",
+      "confidence": "confirmed",
+      "remediation": "Disable TRACE",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "http-trace",
+          "any": [
+            "TRACE is enabled"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "web-directory-listing",
+      "severity": "medium",
+      "title": "Directory listing exposes files",
+      "confidence": "confirmed",
+      "remediation": "Turn off directory listing and remove old files",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "http-enum",
+          "any": [
+            "directory listing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "web-git-exposed",
+      "severity": "high",
+      "title": "Git repository exposed",
+      "confidence": "confirmed",
+      "remediation": "Block /.git on the web server and remove it from the web root",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "http-git"
+        }
+      ]
+    },
+    {
+      "id": "web-server-status",
+      "severity": "medium",
+      "title": "Apache server-status is public",
+      "confidence": "confirmed",
+      "remediation": "Restrict /server-status to admins",
+      "when": [
+        {
+          "op": "data_exists",
+          "script": "http-apache-server-status",
+          "path": [
+            "Heading"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "web-default-login",
+      "severity": "critical",
+      "title": "Web app accepts a default login",
+      "confidence": "confirmed",
+      "remediation": "Change default credentials and restrict admin panels",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "http-default-accounts"
+        }
+      ]
+    },
+    {
+      "id": "web-csrf",
+      "severity": "medium",
+      "title": "Forms without CSRF protection",
+      "confidence": "likely",
+      "remediation": "Add CSRF tokens to state-changing forms",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "http-csrf",
+          "any": [
+            "Found the following possible CSRF"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "web-env-exposed",
+      "severity": "high",
+      "title": ".env file exposed",
+      "confidence": "confirmed",
+      "remediation": "Remove .env from the web root and rotate its secrets",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:env-file"
+        }
+      ]
+    },
+    {
+      "id": "web-backup-exposed",
+      "severity": "high",
+      "title": "Backup file with secrets exposed",
+      "confidence": "confirmed",
+      "remediation": "Remove backup files from the web root and rotate secrets",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:config-backup"
+        }
+      ]
+    },
+    {
+      "id": "web-webdav-enabled",
+      "severity": "high",
+      "title": "WebDAV enabled with no login",
+      "confidence": "likely",
+      "remediation": "Disable WebDAV or require authentication",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:webdav"
+        }
+      ]
+    },
+    {
+      "id": "web-sql-injection",
+      "severity": "high",
+      "title": "Possible SQL injection (database error shown)",
+      "confidence": "likely",
+      "remediation": "Use parameterized queries and hide database errors",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:sqli-error"
+        }
+      ]
+    },
+    {
+      "id": "web-reflected-xss",
+      "severity": "medium",
+      "title": "Reflected XSS",
+      "confidence": "confirmed",
+      "remediation": "Escape output and add a Content-Security-Policy",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:xss-reflected"
+        }
+      ]
+    },
+    {
+      "id": "web-path-traversal",
+      "severity": "high",
+      "title": "Path traversal reads system files",
+      "confidence": "confirmed",
+      "remediation": "Validate file paths against an allow list",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:path-traversal"
+        }
+      ]
+    },
+    {
+      "id": "api-users-no-auth",
+      "severity": "high",
+      "title": "API returns user data without a login",
+      "confidence": "confirmed",
+      "remediation": "Require authentication on the API",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:api-users"
+        }
+      ]
+    },
+    {
+      "id": "api-config-leak",
+      "severity": "high",
+      "title": "API leaks internal configuration",
+      "confidence": "confirmed",
+      "remediation": "Remove the endpoint and rotate leaked secrets",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:api-config"
+        }
+      ]
+    },
+    {
+      "id": "admin-panel-no-login",
+      "severity": "high",
+      "title": "Admin console has no login",
+      "confidence": "confirmed",
+      "remediation": "Require authentication and restrict access",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:admin-console"
+        }
+      ]
+    },
+    {
+      "id": "prometheus-no-auth",
+      "severity": "medium",
+      "title": "Prometheus readable without a login",
+      "confidence": "confirmed",
+      "remediation": "Put Prometheus behind authentication",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:prometheus"
+        }
+      ]
+    },
+    {
+      "id": "apache-cve-2021-41773",
+      "severity": "high",
+      "title": "Apache 2.4.49 is affected by CVE-2021-41773",
+      "confidence": "version-only",
+      "remediation": "Upgrade Apache, then test whether the path traversal works",
+      "when": [
+        {
+          "op": "version_is",
+          "product": "Apache httpd",
+          "versions": [
+            "2.4.49"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tomcat-ghostcat",
+      "severity": "high",
+      "title": "Tomcat 9.0.30 is affected by Ghostcat (CVE-2020-1938)",
+      "confidence": "version-only",
+      "remediation": "Upgrade Tomcat and disable AJP if unused",
+      "when": [
+        {
+          "op": "version_is",
+          "product": "Apache Tomcat",
+          "versions": [
+            "9.0.30"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nginx-outdated",
+      "severity": "low",
+      "title": "nginx 1.18.0 is outdated",
+      "confidence": "version-only",
+      "remediation": "Upgrade nginx to a supported version",
+      "when": [
+        {
+          "op": "version_is",
+          "product": "nginx",
+          "versions": [
+            "1.18.0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ajp-exposed",
+      "severity": "high",
+      "title": "AJP connector reachable from the network",
+      "confidence": "confirmed",
+      "remediation": "Disable AJP or block 8009 from outside",
+      "when": [
+        {
+          "op": "service_in",
+          "names": [
+            "ajp13"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "docker-api-no-auth",
+      "severity": "critical",
+      "title": "Docker API answers without authentication",
+      "confidence": "confirmed",
+      "remediation": "Close 2375, and use TLS client certificates if remote access is needed",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:docker-api"
+        }
+      ]
+    },
+    {
+      "id": "kubernetes-api-no-auth",
+      "severity": "critical",
+      "title": "Kubernetes API answers without a token",
+      "confidence": "confirmed",
+      "remediation": "Disable anonymous auth and restrict the API server",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:kubernetes-api"
+        }
+      ]
+    },
+    {
+      "id": "kubelet-no-auth",
+      "severity": "critical",
+      "title": "Kubelet lists pods without a token",
+      "confidence": "confirmed",
+      "remediation": "Disable kubelet anonymous auth",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:kubelet"
+        }
+      ]
+    },
+    {
+      "id": "etcd-no-auth",
+      "severity": "critical",
+      "title": "etcd keys readable without auth",
+      "confidence": "confirmed",
+      "remediation": "Enable client certificate auth and block 2379 from outside",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "probe:etcd"
+        }
+      ]
+    },
+    {
+      "id": "smtp-open-relay",
+      "severity": "medium",
+      "title": "SMTP server accepts mail for any domain",
+      "confidence": "likely",
+      "remediation": "Allow relaying only for authenticated users",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "smtp-open-relay",
+          "any": [
+            "open relay"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mail-no-starttls",
+      "severity": "medium",
+      "title": "Mail port offers no encryption",
+      "confidence": "confirmed",
+      "remediation": "Enable STARTTLS and require it for logins",
+      "when": [
+        {
+          "op": "service_in",
+          "names": [
+            "smtp",
+            "submission",
+            "pop3",
+            "imap"
+          ],
+          "silent": true
+        },
+        {
+          "op": "script_absent",
+          "script": "ssl-cert"
+        },
+        {
+          "op": "any_script_lacks",
+          "scripts": [
+            "smtp-commands",
+            "pop3-capabilities",
+            "imap-capabilities"
+          ],
+          "all": [
+            "starttls",
+            "stls"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dns-open-resolver",
+      "severity": "medium",
+      "title": "DNS server answers recursive queries for anyone",
+      "confidence": "confirmed",
+      "remediation": "Allow recursion only for trusted clients",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "dns-recursion",
+          "any": [
+            "Recursion appears to be enabled"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dns-zone-transfer",
+      "severity": "medium",
+      "title": "DNS zone transfer open to anyone",
+      "confidence": "confirmed",
+      "remediation": "Allow transfers only to secondary DNS servers",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "dns-zone-transfer",
+          "any": [
+            "SOA"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dns-version-disclosure",
+      "severity": "low",
+      "title": "DNS server shows its version",
+      "confidence": "confirmed",
+      "remediation": "Hide the version in the server config",
+      "when": [
+        {
+          "op": "data_exists",
+          "script": "dns-nsid",
+          "path": [
+            "bind.version"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "email-spf-permissive",
+      "severity": "medium",
+      "title": "SPF allows any sender",
+      "confidence": "confirmed",
+      "remediation": "Change the record to list real senders and end in -all",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "dns-zone-transfer",
+          "any": [
+            "v=spf1 +all"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "email-dmarc-none",
+      "severity": "medium",
+      "title": "DMARC policy is p=none",
+      "confidence": "confirmed",
+      "remediation": "Move to p=quarantine, then p=reject",
+      "when": [
+        {
+          "op": "script_contains",
+          "script": "dns-zone-transfer",
+          "any": [
+            "p=none"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ntp-info-exposed",
+      "severity": "low",
+      "title": "NTP server answers anyone",
+      "confidence": "confirmed",
+      "remediation": "Restrict NTP to trusted clients",
+      "when": [
+        {
+          "op": "script_ran",
+          "script": "ntp-info"
+        }
+      ]
+    },
+    {
+      "id": "snmp-default-community",
+      "severity": "high",
+      "title": "SNMP answers to the default community",
+      "confidence": "confirmed",
+      "remediation": "Change the community string or use SNMPv3",
+      "when": [
+        {
+          "op": "any_script_ran",
+          "scripts": "snmp-sysdescr"
+        }
+      ]
+    }
+  ]
+}

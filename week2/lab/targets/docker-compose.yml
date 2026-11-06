@@ -1,0 +1,280 @@
+# SecLab week 2 targets: INTENTIONALLY MISCONFIGURED services for the Windows laptop (192.168.1.250).
+# Only run them while the Windows Firewall rule limits these ports to Kali (192.168.1.249).
+# Start:  docker compose up -d      Stop:  docker compose down
+name: seclab-targets
+
+services:
+  # Legacy web server: old nginx, version banner, directory listing, no security headers,
+  # expired self-signed cert, weak TLS protocols and ciphers
+  web:
+    image: nginx:1.18
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8443:8443"   # hardened comparison site
+    volumes:
+      - ./web/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./web/certs:/etc/nginx/certs:ro
+      - ./web/html:/usr/share/nginx/html:ro
+    restart: "no"
+
+  # Simple API with no authentication, wildcard CORS and leaky endpoints
+  api:
+    image: python:3.12-slim
+    working_dir: /app
+    command: sh -c "pip install --quiet flask==3.1.* && python app.py"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./api:/app:ro
+    restart: "no"
+
+  # Redis with no password and protected mode off
+  redis:
+    image: redis:6.0
+    command: redis-server --protected-mode no
+    ports:
+      - "6379:6379"
+    restart: "no"
+
+  # Elasticsearch with security disabled (anyone can read/write indices)
+  elasticsearch:
+    image: elasticsearch:7.17.25
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    mem_limit: 1g
+    restart: "no"
+
+  # "Open relay" SMTP: Mailpit accepts mail for any domain without auth, but never
+  # delivers it (it only stores it), so a real relay to the internet can't happen.
+  # Its web UI (8025) is deliberately not published.
+  smtp:
+    image: axllent/mailpit:latest
+    ports:
+      - "25:1025"
+    restart: "no"
+
+  # --- Vulnerable web apps ---
+
+  # DVWA: classic PHP/MySQL training app on an old Apache. First visit: log in admin/password,
+  # then press "Create / Reset Database"
+  dvwa:
+    image: vulnerables/web-dvwa:latest
+    ports:
+      - "8081:80"
+    restart: "no"
+
+  # OWASP Juice Shop: modern Node/Express + Angular app
+  juice-shop:
+    image: bkimminich/juice-shop:latest
+    ports:
+      - "3000:3000"
+    restart: "no"
+
+  # Small Flask shop written for these NSE scripts: SQLi, XSS, traversal, no CSRF token,
+  # weak cookies, Basic auth admin/admin, leaked comments and .env
+  vulnshop:
+    image: python:3.12-slim
+    working_dir: /app
+    command: sh -c "pip install --quiet flask==3.1.* && python app.py"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./vulnshop:/app:ro
+    restart: "no"
+
+  # Apache 2.4.49 with TRACE, WebDAV, server-status/info, exposed .git and backup files
+  apache:
+    image: httpd:2.4.49
+    command: >
+      sh -c "mkdir -p /usr/local/apache2/dav && chown www-data /usr/local/apache2/dav
+      && echo 'Include conf/extra/lab.conf' >> conf/httpd.conf && httpd-foreground"
+    ports:
+      - "8082:80"
+    volumes:
+      - ./apache/lab.conf:/usr/local/apache2/conf/extra/lab.conf:ro
+      - ./apache/html:/usr/local/apache2/htdocs:ro
+    restart: "no"
+
+  # Tomcat 9.0.30: manager open with tomcat/tomcat, AJP connector on 8009 (Ghostcat era)
+  tomcat:
+    image: tomcat:9.0.30
+    command: sh -c "cp -r webapps.dist/* webapps/ && catalina.sh run"
+    ports:
+      - "8888:8080"
+      - "8009:8009"
+    volumes:
+      - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:ro
+      - ./tomcat/manager-context.xml:/usr/local/tomcat/webapps.dist/manager/META-INF/context.xml:ro
+    restart: "no"
+
+  # --- Backends a web app commonly exposes by mistake ---
+
+  # MySQL 5.7: root with an empty password, from any host
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_DATABASE=shop
+    ports:
+      - "3306:3306"
+    restart: "no"
+
+  # PostgreSQL 13: "trust" auth, any password is accepted
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - "5432:5432"
+    restart: "no"
+
+  # MongoDB 4.4 with no authentication
+  mongo:
+    image: mongo:4.4
+    ports:
+      - "27017:27017"
+    restart: "no"
+
+  # Memcached with no authentication, UDP on (DDoS amplification risk)
+  memcached:
+    image: memcached:1.6
+    command: memcached -U 11211
+    ports:
+      - "11211:11211"
+      - "11211:11211/udp"
+    restart: "no"
+
+  # Anonymous FTP, read-only
+  ftp:
+    image: python:3.12-slim
+    command: >
+      sh -c "pip install --quiet pyftpdlib==2.* &&
+      python -m pyftpdlib -p 21 -d /srv/ftp -n 192.168.1.250 -r 30000-30009"
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    volumes:
+      - ./ftp-files:/srv/ftp:ro
+    restart: "no"
+
+  # Prometheus: metrics and internal targets open with no login
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    restart: "no"
+
+  # --- Infrastructure a web app sits on ---
+
+  # BIND: open resolver, zone transfer for anyone, version shown, weak SPF/DMARC, dangling CNAME
+  dns:
+    image: ubuntu/bind9:latest
+    ports:
+      - "53:53"
+      - "53:53/udp"
+    volumes:
+      - ./dns/named.conf:/etc/bind/named.conf:ro
+      - ./dns/corp.zone:/etc/bind/corp.zone:ro
+    restart: "no"
+
+  # GreenMail: POP3, IMAP and SMTP submission with and without TLS. Fake accounts, never
+  # delivers outside. 25 stays on Mailpit (the "open relay" above).
+  mail:
+    image: greenmail/standalone:latest
+    ports:
+      - "110:3110"
+      - "143:3143"
+      - "465:3465"
+      - "587:3025"
+      - "993:3993"
+      - "995:3995"
+    restart: "no"
+
+  # Telnet: cleartext login with admin/admin
+  telnet:
+    image: alpine:3.20
+    command: >
+      sh -c "apk add --no-cache busybox-extras && adduser -D admin
+      && echo admin:admin | chpasswd && telnetd -F -p 23 -l /bin/login"
+    ports:
+      - "23:23"
+    restart: "no"
+
+  # SSH on 2222 with password login admin/admin (22 is the real Windows OpenSSH)
+  ssh:
+    image: linuxserver/openssh-server:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - PASSWORD_ACCESS=true
+      - USER_NAME=admin
+      - USER_PASSWORD=admin
+    ports:
+      - "2222:2222"
+    restart: "no"
+
+  # NTP over UDP, answers anyone
+  ntp:
+    image: alpine:3.20
+    command: sh -c "apk add --no-cache chrony && chronyd -d -x -f /etc/chrony/lab.conf"
+    ports:
+      - "123:123/udp"
+    volumes:
+      - ./ntp/chrony.conf:/etc/chrony/lab.conf:ro
+    restart: "no"
+
+  # SNMP over UDP with the default community "public"
+  snmp:
+    image: alpine:3.20
+    command: sh -c "apk add --no-cache net-snmp && snmpd -f -Lo -C -c /etc/snmp/lab.conf"
+    ports:
+      - "161:161/udp"
+    volumes:
+      - ./snmp/snmpd.conf:/etc/snmp/lab.conf:ro
+    restart: "no"
+
+  # FAKE Docker API (2375, 2376), etcd (2379), Kubernetes API (6443), kubelet (10250),
+  # admin console (9000) and VNC (5900). See mocks/mock_services.py.
+  mocks:
+    image: python:3.12-slim
+    command: python /app/mock_services.py
+    ports:
+      - "2375:2375"
+      - "2376:2376"
+      - "2379:2379"
+      - "5900:5900"
+      - "6443:6443"
+      - "9000:9000"
+      - "10250:10250"
+    volumes:
+      - ./mocks:/app:ro
+    restart: "no"
+
+  # --- Optional, heavy: docker compose --profile heavy up -d ---
+
+  # MSSQL 2019 with a weak sa password (needs about 2 GB of RAM)
+  mssql:
+    profiles: ["heavy"]
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Password1!
+    ports:
+      - "1433:1433"
+    mem_limit: 2g
+    restart: "no"
+
+  # xrdp desktop for the RDP scripts. Fails to start if Windows Remote Desktop is on.
+  rdp:
+    profiles: ["heavy"]
+    image: danielguerra/ubuntu-xrdp:latest
+    ports:
+      - "3389:3389"
+    mem_limit: 1g
+    restart: "no"

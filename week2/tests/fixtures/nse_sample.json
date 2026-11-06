@@ -1,0 +1,2267 @@
+{
+ "hosts": {
+  "192.168.1.250": {
+   "tcp": {
+    "80": {
+     "state": "open",
+     "name": "http",
+     "product": "nginx",
+     "version": "1.18.0"
+    },
+    "443": {
+     "state": "open",
+     "name": "http",
+     "product": "nginx",
+     "version": "1.18.0"
+    },
+    "8000": {
+     "state": "open",
+     "name": "http",
+     "product": "Werkzeug httpd",
+     "version": "3.1.9"
+    },
+    "8080": {
+     "state": "open",
+     "name": "http",
+     "product": "Werkzeug httpd",
+     "version": "3.1.9"
+    },
+    "8081": {
+     "state": "open",
+     "name": "http",
+     "product": "Apache httpd",
+     "version": "2.4.25"
+    },
+    "8082": {
+     "state": "open",
+     "name": "http",
+     "product": "Apache httpd",
+     "version": "2.4.49"
+    },
+    "8443": {
+     "state": "open",
+     "name": "http",
+     "product": "nginx",
+     "version": ""
+    },
+    "8888": {
+     "state": "open",
+     "name": "http",
+     "product": "Apache Tomcat",
+     "version": "9.0.30"
+    },
+    "9090": {
+     "state": "open",
+     "name": "http",
+     "product": "Golang net/http server",
+     "version": ""
+    },
+    "9200": {
+     "state": "open",
+     "name": "http",
+     "product": "Elasticsearch REST API",
+     "version": "7.17.25"
+    },
+    "3000": {
+     "state": "open",
+     "name": "ppp",
+     "product": "",
+     "version": ""
+    },
+    "6443": {
+     "state": "open",
+     "name": "sun-sr-https",
+     "product": "",
+     "version": ""
+    },
+    "9000": {
+     "state": "open",
+     "name": "cslistener",
+     "product": "",
+     "version": ""
+    },
+    "10250": {
+     "state": "open",
+     "name": "unknown",
+     "product": "",
+     "version": ""
+    },
+    "2379": {
+     "state": "open",
+     "name": "etcd-client",
+     "product": "",
+     "version": ""
+    },
+    "21": {
+     "state": "open",
+     "name": "ftp",
+     "product": "pyftpdlib",
+     "version": "2.2.0"
+    },
+    "22": {
+     "state": "open",
+     "name": "ssh",
+     "product": "OpenSSH",
+     "version": "for_Windows_9.5"
+    },
+    "2222": {
+     "state": "open",
+     "name": "ssh",
+     "product": "OpenSSH",
+     "version": "10.3"
+    },
+    "23": {
+     "state": "open",
+     "name": "telnet",
+     "product": "BusyBox telnetd",
+     "version": ""
+    },
+    "25": {
+     "state": "open",
+     "name": "smtp",
+     "product": "",
+     "version": ""
+    },
+    "465": {
+     "state": "open",
+     "name": "smtp",
+     "product": "",
+     "version": ""
+    },
+    "587": {
+     "state": "open",
+     "name": "smtp",
+     "product": "",
+     "version": ""
+    },
+    "110": {
+     "state": "open",
+     "name": "pop3",
+     "product": "",
+     "version": ""
+    },
+    "995": {
+     "state": "open",
+     "name": "pop3",
+     "product": "",
+     "version": ""
+    },
+    "143": {
+     "state": "open",
+     "name": "imap",
+     "product": "",
+     "version": ""
+    },
+    "993": {
+     "state": "open",
+     "name": "imap",
+     "product": "",
+     "version": ""
+    },
+    "53": {
+     "state": "open",
+     "name": "domain",
+     "product": "",
+     "version": ""
+    },
+    "445": {
+     "state": "open",
+     "name": "microsoft-ds",
+     "product": "",
+     "version": ""
+    },
+    "3306": {
+     "state": "open",
+     "name": "mysql",
+     "product": "MySQL",
+     "version": "5.7.44"
+    },
+    "5432": {
+     "state": "open",
+     "name": "postgresql",
+     "product": "PostgreSQL DB",
+     "version": ""
+    },
+    "6379": {
+     "state": "open",
+     "name": "redis",
+     "product": "Redis key-value store",
+     "version": "6.0.20"
+    },
+    "8009": {
+     "state": "open",
+     "name": "ajp13",
+     "product": "Apache Jserv",
+     "version": ""
+    },
+    "11211": {
+     "state": "open",
+     "name": "memcached",
+     "product": "Memcached",
+     "version": "1.6.45"
+    },
+    "27017": {
+     "state": "open",
+     "name": "mongodb",
+     "product": "MongoDB 4.4.30",
+     "version": "4.4.30"
+    },
+    "5900": {
+     "state": "open",
+     "name": "vnc",
+     "product": "VNC",
+     "version": ""
+    },
+    "2375": {
+     "state": "open",
+     "name": "docker",
+     "product": "Docker",
+     "version": "20.10.7"
+    },
+    "2376": {
+     "state": "open",
+     "name": "docker",
+     "product": "",
+     "version": ""
+    }
+   }
+  }
+ },
+ "nse": {
+  "192.168.1.250": {
+   "tcp": {
+    "8081": {
+     "http-csrf": {
+      "output": "Couldn't find any CSRF vulnerabilities.",
+      "data": null,
+      "failed": false
+     },
+     "http-title": {
+      "output": "Did not follow redirect to login.php",
+      "data": {
+       "redirect_url": "login.php"
+      },
+      "failed": false
+     },
+     "http-methods": {
+      "output": "\n  Supported Methods: GET HEAD POST OPTIONS",
+      "data": {
+       "Supported Methods": [
+        "GET",
+        "HEAD",
+        "POST",
+        "OPTIONS"
+       ]
+      },
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  Date: Fri, 06 Nov 2026 08:55:39 GMT\n  Server: Apache/2.4.25 (Debian)\n  Set-Cookie: PHPSESSID=qk1o9537jjpv5clksg7k77k552; path=/\n  Expires: Thu, 19 Nov 1981 08:52:00 GMT\n  Cache-Control: no-store, no-cache, must-revalidate\n  Pragma: no-cache\n  Set-Cookie: PHPSESSID=qk1o9537jjpv5clksg7k77k552; path=/\n  Set-Cookie: security=low\n  Location: login.php\n  Content-Length: 0\n  Connection: close\n  Content-Type: text/html; charset=UTF-8\n  \n  (Request type: GET)\n",
+      "data": null,
+      "failed": false
+     },
+     "http-server-header": {
+      "output": "Apache/2.4.25 (Debian)",
+      "data": [
+       "Apache/2.4.25 (Debian)"
+      ],
+      "failed": false
+     },
+     "http-cookie-flags": {
+      "output": "\n  /: \n    PHPSESSID: \n      httponly flag not set\n  /login.php: \n    PHPSESSID: \n      httponly flag not set",
+      "data": {
+       "/": {
+        "PHPSESSID": [
+         "httponly flag not set"
+        ]
+       },
+       "/login.php": {
+        "PHPSESSID": [
+         "httponly flag not set"
+        ]
+       }
+      },
+      "failed": false
+     },
+     "http-robots.txt": {
+      "output": "1 disallowed entry \n/",
+      "data": null,
+      "failed": false
+     },
+     "http-enum": {
+      "output": "\n  /login.php: Possible admin folder\n  /robots.txt: Robots file\n  /.gitignore: Revision control ignore file\n  /config/: Potentially interesting directory w/ listing on 'apache/2.4.25 (debian)'\n  /docs/: Potentially interesting directory w/ listing on 'apache/2.4.25 (debian)'\n  /external/: Potentially interesting directory w/ listing on 'apache/2.4.25 (debian)'\n",
+      "data": null,
+      "failed": false
+     }
+    },
+    "8082": {
+     "http-apache-server-status": {
+      "output": "\n  Heading: Apache Server Status for 192.168.1.250 (via 172.18.0.5)\n  Server Version: Apache/2.4.49 (Unix)\n  Server Built: Sep 28 2021 07:46:54\n  Server Uptime: 6 hours 51 minutes 35 seconds\n  Server Load: 0.21 0.40 0.28\n  VHosts: \n    172.18.0.5:80",
+      "data": {
+       "Heading": "Apache Server Status for 192.168.1.250 (via 172.18.0.5)",
+       "Server Version": "Apache/2.4.49 (Unix)",
+       "Server Built": "Sep 28 2021 07:46:54",
+       "Server Uptime": "6 hours 51 minutes 35 seconds",
+       "Server Load": "0.21 0.40 0.28",
+       "VHosts": [
+        "172.18.0.5:80"
+       ]
+      },
+      "failed": false
+     },
+     "http-git": {
+      "output": "\n  192.168.1.250:8082/.git/\n    Potential Git repository found (found 2/6 expected files)\n    .git/config matched patterns 'user'\n    Remotes:\n      https://git.seclab.test/corp/site.git\n",
+      "data": {
+       "192.168.1.250:8082/.git/": {
+        "remotes": [
+         "https://git.seclab.test/corp/site.git"
+        ],
+        "files-found": {
+         ".git/COMMIT_EDITMSG": "false",
+         ".gitignore": "false",
+         ".git/description": "false",
+         ".git/info/exclude": "false",
+         ".git/config": "true"
+        },
+        "interesting-matches": {
+         ".git/config": [
+          "user"
+         ]
+        }
+       }
+      },
+      "failed": false
+     },
+     "http-title": {
+      "output": "SecLab Corporate Site",
+      "data": {
+       "title": "SecLab Corporate Site"
+      },
+      "failed": false
+     },
+     "http-methods": {
+      "output": "\n  Supported Methods: HEAD GET POST OPTIONS TRACE\n  Potentially risky methods: TRACE",
+      "data": {
+       "Supported Methods": [
+        "HEAD",
+        "GET",
+        "POST",
+        "OPTIONS",
+        "TRACE"
+       ],
+       "Potentially risky methods": [
+        "TRACE"
+       ]
+      },
+      "failed": false
+     },
+     "http-csrf": {
+      "output": "Couldn't find any CSRF vulnerabilities.",
+      "data": null,
+      "failed": false
+     },
+     "http-trace": {
+      "output": "TRACE is enabled",
+      "data": null,
+      "failed": false
+     },
+     "http-server-header": {
+      "output": "Apache/2.4.49 (Unix)",
+      "data": [
+       "Apache/2.4.49 (Unix)"
+      ],
+      "failed": false
+     },
+     "http-robots.txt": {
+      "output": "2 disallowed entries \n/admin/ /backup/",
+      "data": null,
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  Date: Fri, 06 Nov 2026 08:55:39 GMT\n  Server: Apache/2.4.49 (Unix)\n  Last-Modified: Fri, 06 Nov 2026 00:16:00 GMT\n  ETag: \"b9-65f908451a40e\"\n  Accept-Ranges: bytes\n  Content-Length: 185\n  Connection: close\n  Content-Type: text/html\n  \n  (Request type: HEAD)\n",
+      "data": null,
+      "failed": false
+     },
+     "http-enum": {
+      "output": "\n  /admin/: Possible admin folder\n  /admin/index.html: Possible admin folder\n  /Admin/: Possible admin folder\n  /backup/: Backup folder w/ directory listing\n  /robots.txt: Robots file\n  /.git/HEAD: Git folder\n  /server-info/: Potentially interesting folder\n  /server-status/: Potentially interesting folder\n",
+      "data": null,
+      "failed": false
+     },
+     "probe:env-file": {
+      "output": "GET /.env -> 200, found password",
+      "data": null,
+      "failed": false
+     },
+     "probe:config-backup": {
+      "output": "GET /wp-config.php.bak -> 200, found DB_PASSWORD",
+      "data": null,
+      "failed": false
+     },
+     "probe:webdav": {
+      "output": "OPTIONS /dav/ -> 200, found PROPFIND",
+      "data": null,
+      "failed": false
+     }
+    },
+    "443": {
+     "http-csrf": {
+      "output": "Couldn't find any CSRF vulnerabilities.",
+      "data": null,
+      "failed": false
+     },
+     "ssl-enum-ciphers": {
+      "output": "\n  TLSv1.0: \n    ciphers: \n      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (secp256r1) - A\n      TLS_ECDH_anon_WITH_AES_128_CBC_SHA (secp256r1) - F\n      TLS_ECDH_anon_WITH_AES_256_CBC_SHA (secp256r1) - F\n      TLS_RSA_WITH_AES_128_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_AES_256_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_CAMELLIA_128_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_CAMELLIA_256_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_SEED_CBC_SHA (rsa 2048) - A\n    compressors: \n      NULL\n    cipher preference: client\n    warnings: \n      Anonymous key exchange, score capped at F\n  TLSv1.1: \n    ciphers: \n      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (secp256r1) - A\n      TLS_ECDH_anon_WITH_AES_128_CBC_SHA (secp256r1) - F\n      TLS_ECDH_anon_WITH_AES_256_CBC_SHA (secp256r1) - F\n      TLS_RSA_WITH_AES_128_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_AES_256_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_CAMELLIA_128_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_CAMELLIA_256_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_SEED_CBC_SHA (rsa 2048) - A\n    compressors: \n      NULL\n    cipher preference: client\n    warnings: \n      Anonymous key exchange, score capped at F\n  TLSv1.2: \n    ciphers: \n      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_ARIA_128_GCM_SHA256 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_ARIA_256_GCM_SHA384 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_CAMELLIA_128_CBC_SHA256 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_CAMELLIA_256_CBC_SHA384 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (secp256r1) - A\n      TLS_ECDH_anon_WITH_AES_128_CBC_SHA (secp256r1) - F\n      TLS_ECDH_anon_WITH_AES_256_CBC_SHA (secp256r1) - F\n      TLS_RSA_WITH_AES_128_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_AES_128_CBC_SHA256 (rsa 2048) - A\n      TLS_RSA_WITH_AES_128_CCM (rsa 2048) - A\n      TLS_RSA_WITH_AES_128_CCM_8 (rsa 2048) - A\n      TLS_RSA_WITH_AES_128_GCM_SHA256 (rsa 2048) - A\n      TLS_RSA_WITH_AES_256_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_AES_256_CBC_SHA256 (rsa 2048) - A\n      TLS_RSA_WITH_AES_256_CCM (rsa 2048) - A\n      TLS_RSA_WITH_AES_256_CCM_8 (rsa 2048) - A\n      TLS_RSA_WITH_AES_256_GCM_SHA384 (rsa 2048) - A\n      TLS_RSA_WITH_ARIA_128_GCM_SHA256 (rsa 2048) - A\n      TLS_RSA_WITH_ARIA_256_GCM_SHA384 (rsa 2048) - A\n      TLS_RSA_WITH_CAMELLIA_128_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_CAMELLIA_128_CBC_SHA256 (rsa 2048) - A\n      TLS_RSA_WITH_CAMELLIA_256_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_CAMELLIA_256_CBC_SHA256 (rsa 2048) - A\n      TLS_RSA_WITH_SEED_CBC_SHA (rsa 2048) - A\n    compressors: \n      NULL\n    cipher preference: client\n    warnings: \n      Anonymous key exchange, score capped at F\n  least strength: F",
+      "data": {
+       "TLSv1.0": {
+        "ciphers": [
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDH_anon_WITH_AES_128_CBC_SHA",
+          "kex_info": "secp256r1",
+          "strength": "F"
+         },
+         {
+          "name": "TLS_ECDH_anon_WITH_AES_256_CBC_SHA",
+          "kex_info": "secp256r1",
+          "strength": "F"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_128_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_256_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_CAMELLIA_128_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_CAMELLIA_256_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_SEED_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         }
+        ],
+        "compressors": [
+         "NULL"
+        ],
+        "cipher preference": "client",
+        "warnings": [
+         "Anonymous key exchange, score capped at F"
+        ]
+       },
+       "TLSv1.1": {
+        "ciphers": [
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDH_anon_WITH_AES_128_CBC_SHA",
+          "kex_info": "secp256r1",
+          "strength": "F"
+         },
+         {
+          "name": "TLS_ECDH_anon_WITH_AES_256_CBC_SHA",
+          "kex_info": "secp256r1",
+          "strength": "F"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_128_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_256_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_CAMELLIA_128_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_CAMELLIA_256_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_SEED_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         }
+        ],
+        "compressors": [
+         "NULL"
+        ],
+        "cipher preference": "client",
+        "warnings": [
+         "Anonymous key exchange, score capped at F"
+        ]
+       },
+       "TLSv1.2": {
+        "ciphers": [
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_ARIA_128_GCM_SHA256",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_ARIA_256_GCM_SHA384",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_CAMELLIA_128_CBC_SHA256",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_CAMELLIA_256_CBC_SHA384",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256",
+          "kex_info": "secp256r1",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDH_anon_WITH_AES_128_CBC_SHA",
+          "kex_info": "secp256r1",
+          "strength": "F"
+         },
+         {
+          "name": "TLS_ECDH_anon_WITH_AES_256_CBC_SHA",
+          "kex_info": "secp256r1",
+          "strength": "F"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_128_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_128_CBC_SHA256",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_128_CCM",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_128_CCM_8",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_128_GCM_SHA256",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_256_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_256_CBC_SHA256",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_256_CCM",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_256_CCM_8",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_AES_256_GCM_SHA384",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_ARIA_128_GCM_SHA256",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_ARIA_256_GCM_SHA384",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_CAMELLIA_128_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_CAMELLIA_128_CBC_SHA256",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_CAMELLIA_256_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_CAMELLIA_256_CBC_SHA256",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_RSA_WITH_SEED_CBC_SHA",
+          "kex_info": "rsa 2048",
+          "strength": "A"
+         }
+        ],
+        "compressors": [
+         "NULL"
+        ],
+        "cipher preference": "client",
+        "warnings": [
+         "Anonymous key exchange, score capped at F"
+        ]
+       },
+       "least strength": "F"
+      },
+      "failed": false
+     },
+     "http-methods": {
+      "output": "\n  Supported Methods: GET HEAD",
+      "data": {
+       "Supported Methods": [
+        "GET",
+        "HEAD"
+       ]
+      },
+      "failed": false
+     },
+     "ssl-cert": {
+      "output": "Subject: commonName=www.seclab.test/organizationName=SecLab\nSubject Alternative Name: DNS:www.seclab.test, DNS:intranet.seclab.test\nIssuer: commonName=www.seclab.test/organizationName=SecLab\nPublic Key type: rsa\nPublic Key bits: 2048\nSignature Algorithm: sha256WithRSAEncryption\nNot valid before: 2024-01-01T00:00:00\nNot valid after:  2025-01-01T00:00:00\nMD5:     714a 1980 1e10 a0d2 2ece 2728 e4d0 9398\nSHA-1:   a829 ae79 4b08 bdc4 94c7 215d 6166 799f 8366 f386\nSHA-256: 5c08 0bc4 d1e9 2e10 dfed f3f4 733e 8632 e5d8 0fc6 87c9 e90f a268 13bd 8b16 5de3",
+      "data": {
+       "subject": {
+        "commonName": "www.seclab.test",
+        "organizationName": "SecLab"
+       },
+       "issuer": {
+        "commonName": "www.seclab.test",
+        "organizationName": "SecLab"
+       },
+       "pubkey": {
+        "type": "rsa",
+        "bits": "2048",
+        "modulus": "A67A6DED8EF32A7D63376B7BFAC723664AFA4994ED869B0D25E16DA32B2BB523362DDBBF38244091DF7A2BC239DF96E4869426A13C85E23EC9C03A21D257512B7A16CF9ABBDA24DD44FC41F9C0088C32744D4B302310465F0192FE70CB700C98E1152F9B047C4744F0A86EFC8478D5912B7FBAD800DF7BCB92B19EE550B2274AC985C9BCB34221169BD2C345F1115FAF7FCEE352CC76A8961BD6BC93AA603442E5F0374704B984E9337F0CEF233422B7ED896AE9A3B1C31802D3B2682B2CF8F35C6E92244B0933317681A8B28BEDED643C7B69B4781DCDBA4DB4D29BFB963A2E815806DB503EA1A6854B516F590E683AFC516322820F251104D8689540DE3D99",
+        "exponent": "65537"
+       },
+       "extensions": [
+        {
+         "name": "X509v3 Subject Key Identifier",
+         "value": "FC:55:F3:4D:DB:0A:EE:0A:B5:E5:8E:45:0F:54:9A:63:2B:45:6E:A3"
+        },
+        {
+         "name": "X509v3 Authority Key Identifier",
+         "value": "FC:55:F3:4D:DB:0A:EE:0A:B5:E5:8E:45:0F:54:9A:63:2B:45:6E:A3"
+        },
+        {
+         "name": "X509v3 Basic Constraints",
+         "value": "CA:TRUE",
+         "critical": "true"
+        },
+        {
+         "name": "X509v3 Subject Alternative Name",
+         "value": "DNS:www.seclab.test, DNS:intranet.seclab.test"
+        }
+       ],
+       "sig_algo": "sha256WithRSAEncryption",
+       "validity": {
+        "notBefore": "2024-01-01T00:00:00",
+        "notAfter": "2025-01-01T00:00:00"
+       },
+       "md5": "714a19801e10a0d22ece2728e4d09398",
+       "sha1": "a829ae794b08bdc494c7215d6166799f8366f386",
+       "sha256": "5c080bc4d1e92e10dfedf3f4733e8632e5d80fc687c9e90fa26813bd8b165de3"
+      },
+      "failed": false
+     },
+     "http-title": {
+      "output": "SecLab Intranet (legacy)",
+      "data": {
+       "title": "SecLab Intranet (legacy)"
+      },
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  Server: nginx/1.18.0\n  Date: Fri, 06 Nov 2026 08:55:45 GMT\n  Content-Type: text/html\n  Content-Length: 233\n  Last-Modified: Fri, 06 Nov 2026 00:16:00 GMT\n  Connection: close\n  ETag: \"6aed1c40-e9\"\n  Accept-Ranges: bytes\n  \n  (Request type: HEAD)\n",
+      "data": null,
+      "failed": false
+     },
+     "http-enum": {
+      "output": "\n  /backup/: Backup folder w/ directory listing\n",
+      "data": null,
+      "failed": false
+     },
+     "http-server-header": {
+      "output": "nginx/1.18.0",
+      "data": [
+       "nginx/1.18.0"
+      ],
+      "failed": false
+     }
+    },
+    "8443": {
+     "http-csrf": {
+      "output": "Couldn't find any CSRF vulnerabilities.",
+      "data": null,
+      "failed": false
+     },
+     "ssl-cert": {
+      "output": "Subject: commonName=secure.seclab.test/organizationName=SecLab\nSubject Alternative Name: DNS:secure.seclab.test\nIssuer: commonName=secure.seclab.test/organizationName=SecLab\nPublic Key type: rsa\nPublic Key bits: 2048\nSignature Algorithm: sha256WithRSAEncryption\nNot valid before: 2026-11-06T00:03:39\nNot valid after:  2036-11-03T00:03:39\nMD5:     07b3 4bd3 b9f6 6084 3fa0 2e96 6c1d 3139\nSHA-1:   56a0 1437 f040 c0cd 9c1b c722 4b15 67ae 275b 2b11\nSHA-256: 0b4d 02d4 04ed cd16 9926 c5fe ea6b f556 25d2 d745 eaf2 a9ec 7e19 f747 a502 099e",
+      "data": {
+       "subject": {
+        "commonName": "secure.seclab.test",
+        "organizationName": "SecLab"
+       },
+       "issuer": {
+        "commonName": "secure.seclab.test",
+        "organizationName": "SecLab"
+       },
+       "pubkey": {
+        "type": "rsa",
+        "bits": "2048",
+        "modulus": "B54C0A1D891F6793CE5BE9D7791D42996531CBD1DEA056C6816AF4B7C586887FF4BABA7781817DA692A8FD8202DFC9992AA577A01DF158F3A38406D61C432599F38791274AB5E1D0928E10530FCEE099DD79133FF5D2603A4D9B31D305D5711836D3E05DEB9FA7A51FC2F0C51AB8E827FF27B1085207A02C78A6AE59B57CCE69E0F5981AE72E6A14C678743F9F5C1E0CC7E177661EB630CC496F83349998C2F8B3BACCEFF328A5C87958143F964272BDF29FFC3701E01EA35A3BA50F6DC5948C9243E3EB2B11D9C83D68CB6251BF6DABF3BF1F77987630A47D3C00B0265A7CBCAB7F26D3DB851B3B597080204634BB1E9DFE514BFF01AC46ACD350E049179A1B",
+        "exponent": "65537"
+       },
+       "extensions": [
+        {
+         "name": "X509v3 Subject Key Identifier",
+         "value": "26:E4:09:E3:31:30:48:23:62:7A:45:65:0D:29:B6:E9:F5:BE:31:72"
+        },
+        {
+         "name": "X509v3 Authority Key Identifier",
+         "value": "26:E4:09:E3:31:30:48:23:62:7A:45:65:0D:29:B6:E9:F5:BE:31:72"
+        },
+        {
+         "name": "X509v3 Basic Constraints",
+         "value": "CA:TRUE",
+         "critical": "true"
+        },
+        {
+         "name": "X509v3 Subject Alternative Name",
+         "value": "DNS:secure.seclab.test"
+        }
+       ],
+       "sig_algo": "sha256WithRSAEncryption",
+       "validity": {
+        "notBefore": "2026-11-06T00:03:39",
+        "notAfter": "2036-11-03T00:03:39"
+       },
+       "md5": "07b34bd3b9f660843fa02e966c1d3139",
+       "sha1": "56a01437f040c0cd9c1bc7224b1567ae275b2b11",
+       "sha256": "0b4d02d404edcd169926c5feea6bf55625d2d745eaf2a9ec7e19f747a502099e"
+      },
+      "failed": false
+     },
+     "ssl-enum-ciphers": {
+      "output": "\n  TLSv1.2: \n    ciphers: \n      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_ARIA_128_GCM_SHA256 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_ARIA_256_GCM_SHA384 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_CAMELLIA_128_CBC_SHA256 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_CAMELLIA_256_CBC_SHA384 (secp256r1) - A\n      TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (secp256r1) - A\n      TLS_RSA_WITH_AES_128_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_AES_128_CBC_SHA256 (rsa 2048) - A\n      TLS_RSA_WITH_AES_128_CCM (rsa 2048) - A\n      TLS_RSA_WITH_AES_128_CCM_8 (rsa 2048) - A\n      TLS_RSA_WITH_AES_128_GCM_SHA256 (rsa 2048) - A\n      TLS_RSA_WITH_AES_256_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_AES_256_CBC_SHA256 (rsa 2048) - A\n      TLS_RSA_WITH_AES_256_CCM (rsa 2048) - A\n      TLS_RSA_WITH_AES_256_CCM_8 (rsa 2048) - A\n      TLS_RSA_WITH_AES_256_GCM_SHA384 (rsa 2048) - A\n      TLS_RSA_WITH_ARIA_128_GCM_SHA256 (rsa 2048) - A\n      TLS_RSA_WITH_ARIA_256_GCM_SHA384 (rsa 2048) - A\n      TLS_RSA_WITH_CAMELLIA_128_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_CAMELLIA_128_CBC_SHA256 (rsa 2048) - A\n      TLS_RSA_WITH_CAMELLIA_256_CBC_SHA (rsa 2048) - A\n      TLS_RSA_WITH_CAMELLIA_256_CBC_SHA256 (rsa 2048) - A\n    compressors: \n      NULL\n    cipher preference: client\n  TLSv1.3: \n    ciphers: \n      TLS_AKE_WITH_AES_128_GCM_SHA256 (ecdh_x25519) - A\n      TLS_AKE_WITH_AES_256_GCM_SHA384 (ecdh_x25519) - A\n      TLS_AKE_WITH_CHACHA20_POLY1305_SHA256 (ecdh_x25519) - A\n    cipher preference: client\n  least strength: A",
+      "data": {
+       "TLSv1.2": {
+        "ciphers": [
+         {
+          "kex_info": "secp256r1",
+          "strength": "A",
+          "name": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+         },
+         {
+          "kex_info": "secp256r1",
+          "strength": "A",
+          "name": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
+         },
+         {
+          "kex_info": "secp256r1",
+          "strength": "A",
+          "name": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+         },
+         {
+          "kex_info": "secp256r1",
+          "strength": "A",
+          "name": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+         },
+         {
+          "kex_info": "secp256r1",
+          "strength": "A",
+          "name": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+         },
+         {
+          "kex_info": "secp256r1",
+          "strength": "A",
+          "name": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+         },
+         {
+          "kex_info": "secp256r1",
+          "strength": "A",
+          "name": "TLS_ECDHE_RSA_WITH_ARIA_128_GCM_SHA256"
+         },
+         {
+          "kex_info": "secp256r1",
+          "strength": "A",
+          "name": "TLS_ECDHE_RSA_WITH_ARIA_256_GCM_SHA384"
+         },
+         {
+          "kex_info": "secp256r1",
+          "strength": "A",
+          "name": "TLS_ECDHE_RSA_WITH_CAMELLIA_128_CBC_SHA256"
+         },
+         {
+          "kex_info": "secp256r1",
+          "strength": "A",
+          "name": "TLS_ECDHE_RSA_WITH_CAMELLIA_256_CBC_SHA384"
+         },
+         {
+          "kex_info": "secp256r1",
+          "strength": "A",
+          "name": "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_AES_128_CBC_SHA"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_AES_128_CBC_SHA256"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_AES_128_CCM"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_AES_128_CCM_8"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_AES_128_GCM_SHA256"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_AES_256_CBC_SHA"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_AES_256_CBC_SHA256"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_AES_256_CCM"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_AES_256_CCM_8"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_AES_256_GCM_SHA384"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_ARIA_128_GCM_SHA256"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_ARIA_256_GCM_SHA384"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_CAMELLIA_128_CBC_SHA"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_CAMELLIA_128_CBC_SHA256"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_CAMELLIA_256_CBC_SHA"
+         },
+         {
+          "kex_info": "rsa 2048",
+          "strength": "A",
+          "name": "TLS_RSA_WITH_CAMELLIA_256_CBC_SHA256"
+         }
+        ],
+        "compressors": [
+         "NULL"
+        ],
+        "cipher preference": "client"
+       },
+       "TLSv1.3": {
+        "ciphers": [
+         {
+          "kex_info": "ecdh_x25519",
+          "strength": "A",
+          "name": "TLS_AKE_WITH_AES_128_GCM_SHA256"
+         },
+         {
+          "kex_info": "ecdh_x25519",
+          "strength": "A",
+          "name": "TLS_AKE_WITH_AES_256_GCM_SHA384"
+         },
+         {
+          "kex_info": "ecdh_x25519",
+          "strength": "A",
+          "name": "TLS_AKE_WITH_CHACHA20_POLY1305_SHA256"
+         }
+        ],
+        "cipher preference": "client"
+       },
+       "least strength": "A"
+      },
+      "failed": false
+     },
+     "http-title": {
+      "output": "SecLab Intranet (legacy)",
+      "data": {
+       "title": "SecLab Intranet (legacy)"
+      },
+      "failed": false
+     },
+     "http-methods": {
+      "output": "\n  Supported Methods: GET HEAD",
+      "data": {
+       "Supported Methods": [
+        "GET",
+        "HEAD"
+       ]
+      },
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  Server: nginx\n  Date: Fri, 06 Nov 2026 08:55:53 GMT\n  Content-Type: text/html\n  Content-Length: 233\n  Last-Modified: Fri, 06 Nov 2026 00:16:00 GMT\n  Connection: close\n  ETag: \"6aed1c40-e9\"\n  Strict-Transport-Security: max-age=31536000; includeSubDomains\n  X-Frame-Options: DENY\n  X-Content-Type-Options: nosniff\n  Content-Security-Policy: default-src 'self'\n  Referrer-Policy: no-referrer\n  Accept-Ranges: bytes\n  \n  (Request type: HEAD)\n",
+      "data": null,
+      "failed": false
+     }
+    },
+    "80": {
+     "http-server-header": {
+      "output": "nginx/1.18.0",
+      "data": [
+       "nginx/1.18.0"
+      ],
+      "failed": false
+     },
+     "http-title": {
+      "output": "SecLab Intranet (legacy)",
+      "data": {
+       "title": "SecLab Intranet (legacy)"
+      },
+      "failed": false
+     },
+     "http-csrf": {
+      "output": "Couldn't find any CSRF vulnerabilities.",
+      "data": null,
+      "failed": false
+     },
+     "http-methods": {
+      "output": "\n  Supported Methods: GET HEAD",
+      "data": {
+       "Supported Methods": [
+        "GET",
+        "HEAD"
+       ]
+      },
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  Server: nginx/1.18.0\n  Date: Fri, 06 Nov 2026 08:55:39 GMT\n  Content-Type: text/html\n  Content-Length: 233\n  Last-Modified: Fri, 06 Nov 2026 00:16:00 GMT\n  Connection: close\n  ETag: \"6aed1c40-e9\"\n  Accept-Ranges: bytes\n  \n  (Request type: HEAD)\n",
+      "data": null,
+      "failed": false
+     },
+     "http-enum": {
+      "output": "\n  /backup/: Backup folder w/ directory listing\n",
+      "data": null,
+      "failed": false
+     }
+    },
+    "9200": {
+     "http-methods": {
+      "output": "\n  Supported Methods: HEAD GET DELETE OPTIONS\n  Potentially risky methods: DELETE",
+      "data": {
+       "Supported Methods": [
+        "HEAD",
+        "GET",
+        "DELETE",
+        "OPTIONS"
+       ],
+       "Potentially risky methods": [
+        "DELETE"
+       ]
+      },
+      "failed": false
+     },
+     "http-csrf": {
+      "output": "Couldn't find any CSRF vulnerabilities.",
+      "data": null,
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  X-elastic-product: Elasticsearch\n  content-type: application/json; charset=UTF-8\n  content-length: 547\n  \n  (Request type: HEAD)\n",
+      "data": null,
+      "failed": false
+     },
+     "http-title": {
+      "output": "Site doesn't have a title (application/json; charset=UTF-8).",
+      "data": null,
+      "failed": false
+     },
+     "probe:elasticsearch": {
+      "output": "GET /_cluster/health -> 200, found cluster_name",
+      "data": null,
+      "failed": false
+     }
+    },
+    "8888": {
+     "http-methods": {
+      "output": "\n  Supported Methods: GET HEAD POST OPTIONS",
+      "data": {
+       "Supported Methods": [
+        "GET",
+        "HEAD",
+        "POST",
+        "OPTIONS"
+       ]
+      },
+      "failed": false
+     },
+     "http-default-accounts": {
+      "output": "\n  [Apache Tomcat] at /manager/html/\n    tomcat:tomcat\n",
+      "data": {
+       "Apache Tomcat": {
+        "cpe": "cpe:/a:apache:tomcat",
+        "path": "/manager/html/",
+        "credentials": [
+         {
+          "username": "tomcat",
+          "password": "tomcat"
+         }
+        ]
+       }
+      },
+      "failed": false
+     },
+     "http-csrf": {
+      "output": "Couldn't find any CSRF vulnerabilities.",
+      "data": null,
+      "failed": false
+     },
+     "http-title": {
+      "output": "Apache Tomcat/9.0.30",
+      "data": {
+       "title": "Apache Tomcat/9.0.30"
+      },
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  Content-Type: text/html;charset=UTF-8\n  Transfer-Encoding: chunked\n  Date: Fri, 06 Nov 2026 08:55:51 GMT\n  Connection: close\n  \n  (Request type: HEAD)\n",
+      "data": null,
+      "failed": false
+     },
+     "http-enum": {
+      "output": "\n  /examples/: Sample scripts\n  /manager/html/upload: Apache Tomcat (401 )\n  /manager/html: Apache Tomcat (401 )\n  /docs/: Potentially interesting folder\n",
+      "data": null,
+      "failed": false
+     }
+    },
+    "3000": {
+     "http-title": {
+      "output": "OWASP Juice Shop",
+      "data": {
+       "title": "OWASP Juice Shop"
+      },
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  Access-Control-Allow-Origin: *\n  X-Content-Type-Options: nosniff\n  X-Frame-Options: SAMEORIGIN\n  Feature-Policy: payment 'self'\n  X-Recruiting: /#/jobs\n  Accept-Ranges: bytes\n  Cache-Control: public, max-age=0\n  Last-Modified: Fri, 06 Nov 2026 02:04:37 GMT\n  ETag: W/\"2700-1a1ae99cded\"\n  Content-Type: text/html; charset=UTF-8\n  Content-Length: 9984\n  Vary: Accept-Encoding\n  Date: Fri, 06 Nov 2026 08:56:16 GMT\n  Connection: close\n  \n  (Request type: HEAD)\n",
+      "data": null,
+      "failed": false
+     },
+     "http-methods": {
+      "output": "\n  Supported Methods: GET HEAD POST OPTIONS",
+      "data": {
+       "Supported Methods": [
+        "GET",
+        "HEAD",
+        "POST",
+        "OPTIONS"
+       ]
+      },
+      "failed": false
+     },
+     "http-robots.txt": {
+      "output": "1 disallowed entry \n/ftp",
+      "data": null,
+      "failed": false
+     },
+     "fingerprint-strings": {
+      "output": "\n  GetRequest: \n    HTTP/1.1 200 OK\n    Access-Control-Allow-Origin: *\n    X-Content-Type-Options: nosniff\n    X-Frame-Options: SAMEORIGIN\n    Feature-Policy: payment 'self'\n    X-Recruiting: /#/jobs\n    Accept-Ranges: bytes\n    Cache-Control: public, max-age=0\n    Last-Modified: Fri, 06 Nov 2026 02:04:37 GMT\n    ETag: W/\"2700-1a1ae99cded\"\n    Content-Type: text/html; charset=UTF-8\n    Content-Length: 9984\n    Vary: Accept-Encoding\n    Date: Fri, 06 Nov 2026 08:56:15 GMT\n    Connection: close\n    <!--\n    Copyright (c) 2014-2026 Bjoern Kimminich & the OWASP Juice Shop contributors.\n    SPDX-License-Identifier: MIT\n    <!doctype html>\n    <html lang=\"en\" data-beasties-container>\n    <head>\n    <meta charset=\"utf-8\">\n    <title>OWASP Juice Shop</title>\n    <meta name=\"description\" content=\"Probably the most modern and sophisticated insecure web application\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"preconnect\" href=\"htt\n  HTTPOptions, RTSPRequest: \n    HTTP/1.1 204 No Content\n    Access-Control-Allow-Origin: *\n    Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE\n    Vary: Access-Control-Request-Headers\n    Content-Length: 0\n    Date: Fri, 06 Nov 2026 08:56:15 GMT\n    Connection: close\n  Help, NCP, RPCCheck: \n    HTTP/1.1 400 Bad Request\n    Connection: close",
+      "data": {
+       "GetRequest": "\n    HTTP/1.1 200 OK\n    Access-Control-Allow-Origin: *\n    X-Content-Type-Options: nosniff\n    X-Frame-Options: SAMEORIGIN\n    Feature-Policy: payment 'self'\n    X-Recruiting: /#/jobs\n    Accept-Ranges: bytes\n    Cache-Control: public, max-age=0\n    Last-Modified: Fri, 06 Nov 2026 02:04:37 GMT\n    ETag: W/\"2700-1a1ae99cded\"\n    Content-Type: text/html; charset=UTF-8\n    Content-Length: 9984\n    Vary: Accept-Encoding\n    Date: Fri, 06 Nov 2026 08:56:15 GMT\n    Connection: close\n    <!--\n    Copyright (c) 2014-2026 Bjoern Kimminich & the OWASP Juice Shop contributors.\n    SPDX-License-Identifier: MIT\n    <!doctype html>\n    <html lang=\"en\" data-beasties-container>\n    <head>\n    <meta charset=\"utf-8\">\n    <title>OWASP Juice Shop</title>\n    <meta name=\"description\" content=\"Probably the most modern and sophisticated insecure web application\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"preconnect\" href=\"htt",
+       "HTTPOptions, RTSPRequest": "\n    HTTP/1.1 204 No Content\n    Access-Control-Allow-Origin: *\n    Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE\n    Vary: Access-Control-Request-Headers\n    Content-Length: 0\n    Date: Fri, 06 Nov 2026 08:56:15 GMT\n    Connection: close",
+       "Help, NCP, RPCCheck": "\n    HTTP/1.1 400 Bad Request\n    Connection: close"
+      },
+      "failed": false
+     }
+    },
+    "8000": {
+     "http-methods": {
+      "output": "\n  Supported Methods: HEAD OPTIONS GET",
+      "data": {
+       "Supported Methods": [
+        "HEAD",
+        "OPTIONS",
+        "GET"
+       ]
+      },
+      "failed": false
+     },
+     "http-title": {
+      "output": "SecLab Shop",
+      "data": {
+       "title": "SecLab Shop"
+      },
+      "failed": false
+     },
+     "http-csrf": {
+      "output": "\nSpidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.1.250\n  Found the following possible CSRF vulnerabilities: \n    \n    Path: http://192.168.1.250:8000/login\n    Form id: \n    Form action: /login\n    \n    Path: http://192.168.1.250:8000/guestbook\n    Form id: \n    Form action: /guestbook\n",
+      "data": null,
+      "failed": false
+     },
+     "http-server-header": {
+      "output": "Werkzeug/3.1.9 Python/3.12.16",
+      "data": [
+       "Werkzeug/3.1.9 Python/3.12.16"
+      ],
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  Server: Werkzeug/3.1.9 Python/3.12.16\n  Date: Fri, 06 Nov 2026 08:55:39 GMT\n  Content-Type: text/html; charset=utf-8\n  Content-Length: 589\n  Set-Cookie: sessionid=fake-session-1234; Path=/\n  Connection: close\n  \n  (Request type: HEAD)\n",
+      "data": null,
+      "failed": false
+     },
+     "http-robots.txt": {
+      "output": "2 disallowed entries \n/admin /.env",
+      "data": null,
+      "failed": false
+     },
+     "http-cookie-flags": {
+      "output": "\n  /: \n    sessionid: \n      httponly flag not set",
+      "data": {
+       "/": {
+        "sessionid": [
+         "httponly flag not set"
+        ]
+       }
+      },
+      "failed": false
+     },
+     "http-enum": {
+      "output": "\n  /robots.txt: Robots file\n",
+      "data": null,
+      "failed": false
+     },
+     "probe:env-file": {
+      "output": "GET /.env -> 200, found password",
+      "data": null,
+      "failed": false
+     },
+     "probe:sqli-error": {
+      "output": "GET /product?id=1%27 -> 200, found SQL syntax",
+      "data": null,
+      "failed": false
+     },
+     "probe:xss-reflected": {
+      "output": "GET /search?q=%3Cscript%3Ealert(1)%3C/script%3E -> 200, found <script>alert(1)</script>",
+      "data": null,
+      "failed": false
+     },
+     "probe:path-traversal": {
+      "output": "GET /page?file=../../../../../../etc/passwd -> 200, found root:",
+      "data": null,
+      "failed": false
+     }
+    },
+    "8080": {
+     "http-methods": {
+      "output": "\n  Supported Methods: GET HEAD OPTIONS",
+      "data": {
+       "Supported Methods": [
+        "GET",
+        "HEAD",
+        "OPTIONS"
+       ]
+      },
+      "failed": false
+     },
+     "http-title": {
+      "output": "Site doesn't have a title (application/json).",
+      "data": null,
+      "failed": false
+     },
+     "http-csrf": {
+      "output": "Couldn't find any CSRF vulnerabilities.",
+      "data": null,
+      "failed": false
+     },
+     "http-server-header": {
+      "output": "Werkzeug/3.1.9 Python/3.12.16",
+      "data": [
+       "Werkzeug/3.1.9 Python/3.12.16"
+      ],
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  Server: Werkzeug/3.1.9 Python/3.12.16\n  Date: Fri, 06 Nov 2026 08:55:39 GMT\n  Content-Type: application/json\n  Content-Length: 110\n  Access-Control-Allow-Origin: *\n  X-Powered-By: SecLab-API/0.9-beta\n  Connection: close\n  \n  (Request type: HEAD)\n",
+      "data": null,
+      "failed": false
+     },
+     "probe:api-users": {
+      "output": "GET /api/v1/users -> 200, found email",
+      "data": null,
+      "failed": false
+     },
+     "probe:api-config": {
+      "output": "GET /api/v1/config -> 200, found db_password",
+      "data": null,
+      "failed": false
+     }
+    },
+    "21": {
+     "ftp-anon": {
+      "output": "Anonymous FTP login allowed (FTP code 230)\n-rwxrwxrwx   1 root     root           73 Nov 06 00:16 customers_export.txt [NSE: writeable]",
+      "data": null,
+      "failed": false
+     }
+    },
+    "22": {
+     "ssh-auth-methods": {
+      "output": "\n  Supported authentication methods: \n    publickey\n    password\n    keyboard-interactive",
+      "data": {
+       "Supported authentication methods": [
+        "publickey",
+        "password",
+        "keyboard-interactive"
+       ]
+      },
+      "failed": false
+     },
+     "ssh2-enum-algos": {
+      "output": "\n  kex_algorithms: (10)\n      curve25519-sha256\n      curve25519-sha256@libssh.org\n      ecdh-sha2-nistp256\n      ecdh-sha2-nistp384\n      ecdh-sha2-nistp521\n      diffie-hellman-group-exchange-sha256\n      diffie-hellman-group16-sha512\n      diffie-hellman-group18-sha512\n      diffie-hellman-group14-sha256\n      kex-strict-s-v00@openssh.com\n  server_host_key_algorithms: (4)\n      rsa-sha2-512\n      rsa-sha2-256\n      ecdsa-sha2-nistp256\n      ssh-ed25519\n  encryption_algorithms: (6)\n      chacha20-poly1305@openssh.com\n      aes128-ctr\n      aes192-ctr\n      aes256-ctr\n      aes128-gcm@openssh.com\n      aes256-gcm@openssh.com\n  mac_algorithms: (8)\n      umac-64-etm@openssh.com\n      umac-128-etm@openssh.com\n      hmac-sha2-256-etm@openssh.com\n      hmac-sha2-512-etm@openssh.com\n      umac-64@openssh.com\n      umac-128@openssh.com\n      hmac-sha2-256\n      hmac-sha2-512\n  compression_algorithms: (2)\n      none\n      zlib@openssh.com",
+      "data": {
+       "kex_algorithms": [
+        "curve25519-sha256",
+        "curve25519-sha256@libssh.org",
+        "ecdh-sha2-nistp256",
+        "ecdh-sha2-nistp384",
+        "ecdh-sha2-nistp521",
+        "diffie-hellman-group-exchange-sha256",
+        "diffie-hellman-group16-sha512",
+        "diffie-hellman-group18-sha512",
+        "diffie-hellman-group14-sha256",
+        "kex-strict-s-v00@openssh.com"
+       ],
+       "server_host_key_algorithms": [
+        "rsa-sha2-512",
+        "rsa-sha2-256",
+        "ecdsa-sha2-nistp256",
+        "ssh-ed25519"
+       ],
+       "encryption_algorithms": [
+        "chacha20-poly1305@openssh.com",
+        "aes128-ctr",
+        "aes192-ctr",
+        "aes256-ctr",
+        "aes128-gcm@openssh.com",
+        "aes256-gcm@openssh.com"
+       ],
+       "mac_algorithms": [
+        "umac-64-etm@openssh.com",
+        "umac-128-etm@openssh.com",
+        "hmac-sha2-256-etm@openssh.com",
+        "hmac-sha2-512-etm@openssh.com",
+        "umac-64@openssh.com",
+        "umac-128@openssh.com",
+        "hmac-sha2-256",
+        "hmac-sha2-512"
+       ],
+       "compression_algorithms": [
+        "none",
+        "zlib@openssh.com"
+       ]
+      },
+      "failed": false
+     }
+    },
+    "2222": {
+     "ssh2-enum-algos": {
+      "output": "\n  kex_algorithms: (10)\n      mlkem768x25519-sha256\n      sntrup761x25519-sha512\n      sntrup761x25519-sha512@openssh.com\n      curve25519-sha256\n      curve25519-sha256@libssh.org\n      ecdh-sha2-nistp256\n      ecdh-sha2-nistp384\n      ecdh-sha2-nistp521\n      ext-info-s\n      kex-strict-s-v00@openssh.com\n  server_host_key_algorithms: (4)\n      ecdsa-sha2-nistp256\n      ssh-ed25519\n      rsa-sha2-512\n      rsa-sha2-256\n  encryption_algorithms: (6)\n      chacha20-poly1305@openssh.com\n      aes128-gcm@openssh.com\n      aes256-gcm@openssh.com\n      aes128-ctr\n      aes192-ctr\n      aes256-ctr\n  mac_algorithms: (10)\n      umac-64-etm@openssh.com\n      umac-128-etm@openssh.com\n      hmac-sha2-256-etm@openssh.com\n      hmac-sha2-512-etm@openssh.com\n      hmac-sha1-etm@openssh.com\n      umac-64@openssh.com\n      umac-128@openssh.com\n      hmac-sha2-256\n      hmac-sha2-512\n      hmac-sha1\n  compression_algorithms: (2)\n      none\n      zlib@openssh.com",
+      "data": {
+       "kex_algorithms": [
+        "mlkem768x25519-sha256",
+        "sntrup761x25519-sha512",
+        "sntrup761x25519-sha512@openssh.com",
+        "curve25519-sha256",
+        "curve25519-sha256@libssh.org",
+        "ecdh-sha2-nistp256",
+        "ecdh-sha2-nistp384",
+        "ecdh-sha2-nistp521",
+        "ext-info-s",
+        "kex-strict-s-v00@openssh.com"
+       ],
+       "server_host_key_algorithms": [
+        "ecdsa-sha2-nistp256",
+        "ssh-ed25519",
+        "rsa-sha2-512",
+        "rsa-sha2-256"
+       ],
+       "encryption_algorithms": [
+        "chacha20-poly1305@openssh.com",
+        "aes128-gcm@openssh.com",
+        "aes256-gcm@openssh.com",
+        "aes128-ctr",
+        "aes192-ctr",
+        "aes256-ctr"
+       ],
+       "mac_algorithms": [
+        "umac-64-etm@openssh.com",
+        "umac-128-etm@openssh.com",
+        "hmac-sha2-256-etm@openssh.com",
+        "hmac-sha2-512-etm@openssh.com",
+        "hmac-sha1-etm@openssh.com",
+        "umac-64@openssh.com",
+        "umac-128@openssh.com",
+        "hmac-sha2-256",
+        "hmac-sha2-512",
+        "hmac-sha1"
+       ],
+       "compression_algorithms": [
+        "none",
+        "zlib@openssh.com"
+       ]
+      },
+      "failed": false
+     },
+     "ssh-auth-methods": {
+      "output": "\n  Supported authentication methods: \n    publickey\n    password\n    keyboard-interactive",
+      "data": {
+       "Supported authentication methods": [
+        "publickey",
+        "password",
+        "keyboard-interactive"
+       ]
+      },
+      "failed": false
+     }
+    },
+    "23": {
+     "telnet-encryption": {
+      "output": "\n  Telnet server does not support encryption",
+      "data": null,
+      "failed": false
+     }
+    },
+    "9090": {
+     "http-headers": {
+      "output": "\n  Content-Type: text/html; charset=utf-8\n  Location: /query\n  Date: Fri, 06 Nov 2026 08:56:27 GMT\n  Content-Length: 29\n  Connection: close\n  \n  (Request type: GET)\n",
+      "data": null,
+      "failed": false
+     },
+     "http-title": {
+      "output": "Did not follow redirect to /query",
+      "data": {
+       "redirect_url": "/query"
+      },
+      "failed": false
+     },
+     "http-methods": {
+      "output": "\n  Supported Methods: GET OPTIONS",
+      "data": {
+       "Supported Methods": [
+        "GET",
+        "OPTIONS"
+       ]
+      },
+      "failed": false
+     },
+     "http-csrf": {
+      "output": "Couldn't find any CSRF vulnerabilities.",
+      "data": null,
+      "failed": false
+     },
+     "probe:prometheus": {
+      "output": "GET /api/v1/targets -> 200, found activeTargets",
+      "data": null,
+      "failed": false
+     }
+    },
+    "25": {
+     "smtp-open-relay": {
+      "output": "Server is an open relay (9/16 tests)",
+      "data": null,
+      "failed": false
+     },
+     "fingerprint-strings": {
+      "output": "\n  GenericLines, GetRequest: \n    220 2adfc935188d Mailpit ESMTP Service ready\n    5.5.2 Syntax error, command unrecognized\n    5.5.2 Syntax error, command unrecognized\n  Hello: \n    220 2adfc935188d Mailpit ESMTP Service ready\n    250-2adfc935188d greets \n    250-SIZE 52428800\n    250-ENHANCEDSTATUSCODES\n    250-8BITMIME\n    SMTPUTF8\n  Help: \n    220 2adfc935188d Mailpit ESMTP Service ready\n    5.5.1 Command not implemented\n  NULL: \n    220 2adfc935188d Mailpit ESMTP Service ready",
+      "data": {
+       "GenericLines, GetRequest": "\n    220 2adfc935188d Mailpit ESMTP Service ready\n    5.5.2 Syntax error, command unrecognized\n    5.5.2 Syntax error, command unrecognized",
+       "Hello": "\n    220 2adfc935188d Mailpit ESMTP Service ready\n    250-2adfc935188d greets \n    250-SIZE 52428800\n    250-ENHANCEDSTATUSCODES\n    250-8BITMIME\n    SMTPUTF8",
+       "Help": "\n    220 2adfc935188d Mailpit ESMTP Service ready\n    5.5.1 Command not implemented",
+       "NULL": "\n    220 2adfc935188d Mailpit ESMTP Service ready"
+      },
+      "failed": false
+     },
+     "smtp-commands": {
+      "output": "2adfc935188d greets nmap.scanme.org, SIZE 52428800, ENHANCEDSTATUSCODES, 8BITMIME, SMTPUTF8",
+      "data": null,
+      "failed": false
+     }
+    },
+    "465": {
+     "fingerprint-strings": {
+      "output": "\n  GenericLines, GetRequest: \n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready\n    Invalid command. Must be 4 characters\n    Invalid command. Must be 4 characters\n  Hello: \n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready\n    250-/172.18.0.7\n    250-AUTH PLAIN LOGIN XOAUTH2\n    SMTPUTF8\n  Help: \n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready\n    Command not recognized\n  NULL: \n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready",
+      "data": {
+       "GenericLines, GetRequest": "\n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready\n    Invalid command. Must be 4 characters\n    Invalid command. Must be 4 characters",
+       "Hello": "\n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready\n    250-/172.18.0.7\n    250-AUTH PLAIN LOGIN XOAUTH2\n    SMTPUTF8",
+       "Help": "\n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready\n    Command not recognized",
+       "NULL": "\n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready"
+      },
+      "failed": false
+     },
+     "smtp-open-relay": {
+      "output": "Server is an open relay (2/16 tests)",
+      "data": null,
+      "failed": false
+     },
+     "smtp-commands": {
+      "output": "/172.18.0.7",
+      "data": null,
+      "failed": false
+     },
+     "ssl-cert": {
+      "output": "Subject: commonName=GreenMail selfsigned Test Certificate/organizationName=Icegreen Technologies/countryName=US\nIssuer: commonName=GreenMail selfsigned Test Certificate/organizationName=Icegreen Technologies/countryName=US\nPublic Key type: rsa\nPublic Key bits: 2048\nSignature Algorithm: sha256WithRSAEncryption\nNot valid before: 2026-10-25T14:56:51\nNot valid after:  2029-01-27T14:56:51\nMD5:     5c13 687a 63b0 0b61 aa1b 1eb4 ba65 8dc7\nSHA-1:   aedd 6d82 c855 c720 c048 493b 94b9 39ca b17d be0f\nSHA-256: 6f68 3470 0eab 112f 764d c24a 9c8e 8ed1 85a5 ce81 1bd1 7687 d015 9639 49b8 4ae1",
+      "data": {
+       "subject": {
+        "commonName": "GreenMail selfsigned Test Certificate",
+        "countryName": "US",
+        "organizationName": "Icegreen Technologies",
+        "organizationalUnitName": "GreenMail"
+       },
+       "issuer": {
+        "commonName": "GreenMail selfsigned Test Certificate",
+        "countryName": "US",
+        "organizationName": "Icegreen Technologies",
+        "organizationalUnitName": "GreenMail"
+       },
+       "pubkey": {
+        "type": "rsa",
+        "bits": "2048",
+        "modulus": "BEAE34AD8549E527C93E2B0ED3E2CAF81F24FE2E70C67AA09AFDD854FA11C77822C7CE9AE44DA36DB27F10089054E12A5596D83827DD94BDE45D6353375ECCBDDE7B2D908640389FF7B65684EFEEBF9463E83CF25DB672A5926F69CB5BC0F950C31506058A8421FD3C8947870508BEDE0619D623090821456D92A65A97E5100779E695B317A46C4A217CBAE244C8ABE940B2A3CD6A06DAC01E9D9368D12AF8957968F4D340B0D7D7A7EEB9CE4442842A46E8355A43B26D039DC5238F714E2BBFF04EA3198F813C1F0A69787FBE82ED41D1D8CB4B02D89F21FE2C0E56D829194AA2004A7ACEAE23F79D210E75BFE0D30C55095CA430C305DC36F657CE8A1C7D77",
+        "exponent": "65537"
+       },
+       "sig_algo": "sha256WithRSAEncryption",
+       "validity": {
+        "notBefore": "2026-10-25T14:56:51",
+        "notAfter": "2029-01-27T14:56:51"
+       },
+       "md5": "5c13687a63b00b61aa1b1eb4ba658dc7",
+       "sha1": "aedd6d82c855c720c048493b94b939cab17dbe0f",
+       "sha256": "6f6834700eab112f764dc24a9c8e8ed185a5ce811bd17687d015963949b84ae1"
+      },
+      "failed": false
+     }
+    },
+    "587": {
+     "smtp-open-relay": {
+      "output": "Server is an open relay (2/16 tests)",
+      "data": null,
+      "failed": false
+     },
+     "fingerprint-strings": {
+      "output": "\n  GenericLines, GetRequest: \n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready\n    Invalid command. Must be 4 characters\n    Invalid command. Must be 4 characters\n  Hello: \n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready\n    250-/172.18.0.7\n    250-AUTH PLAIN LOGIN XOAUTH2\n    SMTPUTF8\n  Help: \n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready\n    Command not recognized\n  NULL: \n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready",
+      "data": {
+       "GenericLines, GetRequest": "\n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready\n    Invalid command. Must be 4 characters\n    Invalid command. Must be 4 characters",
+       "Hello": "\n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready\n    250-/172.18.0.7\n    250-AUTH PLAIN LOGIN XOAUTH2\n    SMTPUTF8",
+       "Help": "\n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready\n    Command not recognized",
+       "NULL": "\n    220 /172.18.0.7 GreenMail SMTP Service v2.1.15 ready"
+      },
+      "failed": false
+     },
+     "smtp-commands": {
+      "output": "/172.18.0.7",
+      "data": null,
+      "failed": false
+     }
+    },
+    "6443": {
+     "ssl-enum-ciphers": {
+      "output": "\n  TLSv1.2: \n    ciphers: \n      TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (ecdh_x25519) - A\n      TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (ecdh_x25519) - A\n      TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (ecdh_x25519) - A\n      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (ecdh_x25519) - A\n      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (ecdh_x25519) - A\n    compressors: \n      NULL\n    cipher preference: server\n  TLSv1.3: \n    ciphers: \n      TLS_AKE_WITH_AES_256_GCM_SHA384 (X25519MLKEM768) - A\n      TLS_AKE_WITH_CHACHA20_POLY1305_SHA256 (X25519MLKEM768) - A\n      TLS_AKE_WITH_AES_128_GCM_SHA256 (X25519MLKEM768) - A\n    cipher preference: server\n  least strength: A",
+      "data": {
+       "TLSv1.2": {
+        "ciphers": [
+         {
+          "kex_info": "ecdh_x25519",
+          "name": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+          "strength": "A"
+         },
+         {
+          "kex_info": "ecdh_x25519",
+          "name": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+          "strength": "A"
+         },
+         {
+          "kex_info": "ecdh_x25519",
+          "name": "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256",
+          "strength": "A"
+         },
+         {
+          "kex_info": "ecdh_x25519",
+          "name": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384",
+          "strength": "A"
+         },
+         {
+          "kex_info": "ecdh_x25519",
+          "name": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+          "strength": "A"
+         }
+        ],
+        "compressors": [
+         "NULL"
+        ],
+        "cipher preference": "server"
+       },
+       "TLSv1.3": {
+        "ciphers": [
+         {
+          "kex_info": "X25519MLKEM768",
+          "name": "TLS_AKE_WITH_AES_256_GCM_SHA384",
+          "strength": "A"
+         },
+         {
+          "kex_info": "X25519MLKEM768",
+          "name": "TLS_AKE_WITH_CHACHA20_POLY1305_SHA256",
+          "strength": "A"
+         },
+         {
+          "kex_info": "X25519MLKEM768",
+          "name": "TLS_AKE_WITH_AES_128_GCM_SHA256",
+          "strength": "A"
+         }
+        ],
+        "cipher preference": "server"
+       },
+       "least strength": "A"
+      },
+      "failed": false
+     },
+     "ssl-cert": {
+      "output": "Subject: commonName=kube-apiserver/organizationName=SecLab\nSubject Alternative Name: DNS:kubernetes.default.svc, DNS:payments.internal.seclab.test, IP Address:10.96.0.1\nIssuer: commonName=kube-apiserver/organizationName=SecLab\nPublic Key type: rsa\nPublic Key bits: 2048\nSignature Algorithm: sha256WithRSAEncryption\nNot valid before: 2026-11-06T00:03:39\nNot valid after:  2036-11-03T00:03:39\nMD5:     0a5f f954 096c 47f9 0c19 55d6 8bef 72c0\nSHA-1:   a904 b34e 7e61 9de7 7fc9 f265 4036 f523 3d63 f3b4\nSHA-256: 66d9 c865 668c d1ac 681b 8dd8 f342 5008 fe66 672d 122d 12f9 c45d d994 4550 6ec7",
+      "data": {
+       "subject": {
+        "commonName": "kube-apiserver",
+        "organizationName": "SecLab"
+       },
+       "issuer": {
+        "commonName": "kube-apiserver",
+        "organizationName": "SecLab"
+       },
+       "pubkey": {
+        "type": "rsa",
+        "bits": "2048",
+        "modulus": "C99382B96705AD4B74EBDD5E0C54FA4F7DAF13500AE290A036C1EA705993527055AAD452160E0DD9E2E9FD47A1CDC7E49387E8898A6D9C15954594BF465D3FF7F3F2C465CF569C7A960164F808C18EA8E8DD4F9F9FF073F46E52157D4F298932F284CBC7C95A98E86225D66A0132E25B33DA4F354EB300A5F39C1F31EE3B2B23F5AD8E8D01228CD01B5F4AE833BD9C5398E0E7B8837443F5C2DDDC0C33DAAE00C5E5E6FF7557C191D9D542DCD19E261E3D7ADB5E02A4E790819C8AE2AFF8EE8ADDD2AAB7231581EBE32E7C03E7B7B06AF8193FB6918B7AF31F7D26B34B17C5994247CDDAD9FE58D05A9A732DE65A3EC414DEED9C301C8A52813085C383B990A3",
+        "exponent": "65537"
+       },
+       "extensions": [
+        {
+         "name": "X509v3 Subject Key Identifier",
+         "value": "25:42:C2:F6:6D:F0:53:24:1E:DF:BB:D1:D6:28:21:2E:6E:30:77:96"
+        },
+        {
+         "name": "X509v3 Authority Key Identifier",
+         "value": "25:42:C2:F6:6D:F0:53:24:1E:DF:BB:D1:D6:28:21:2E:6E:30:77:96"
+        },
+        {
+         "name": "X509v3 Basic Constraints",
+         "value": "CA:TRUE",
+         "critical": "true"
+        },
+        {
+         "name": "X509v3 Subject Alternative Name",
+         "value": "DNS:kubernetes.default.svc, DNS:payments.internal.seclab.test, IP Address:10.96.0.1"
+        }
+       ],
+       "sig_algo": "sha256WithRSAEncryption",
+       "validity": {
+        "notBefore": "2026-11-06T00:03:39",
+        "notAfter": "2036-11-03T00:03:39"
+       },
+       "md5": "0a5ff954096c47f90c1955d68bef72c0",
+       "sha1": "a904b34e7e619de77fc9f2654036f5233d63f3b4",
+       "sha256": "66d9c865668cd1ac681b8dd8f3425008fe66672d122d12f9c45dd99445506ec7"
+      },
+      "failed": false
+     },
+     "probe:kubernetes-api": {
+      "output": "GET /version -> 200, found gitVersion",
+      "data": null,
+      "failed": false
+     }
+    },
+    "110": {
+     "fingerprint-strings": {
+      "output": "\n  GenericLines, NULL: \n    +OK POP3 GreenMail Server v2.1.15 ready\n  HTTPOptions: \n    +OK POP3 GreenMail Server v2.1.15 ready\n    -ERR Command not recognized",
+      "data": {
+       "GenericLines, NULL": "\n    +OK POP3 GreenMail Server v2.1.15 ready",
+       "HTTPOptions": "\n    +OK POP3 GreenMail Server v2.1.15 ready\n    -ERR Command not recognized"
+      },
+      "failed": false
+     },
+     "pop3-capabilities": {
+      "output": "SASL(PLAIN XOAUTH2) UIDL",
+      "data": null,
+      "failed": false
+     }
+    },
+    "10250": {
+     "ssl-cert": {
+      "output": "Subject: commonName=kube-apiserver/organizationName=SecLab\nSubject Alternative Name: DNS:kubernetes.default.svc, DNS:payments.internal.seclab.test, IP Address:10.96.0.1\nIssuer: commonName=kube-apiserver/organizationName=SecLab\nPublic Key type: rsa\nPublic Key bits: 2048\nSignature Algorithm: sha256WithRSAEncryption\nNot valid before: 2026-11-06T00:03:39\nNot valid after:  2036-11-03T00:03:39\nMD5:     0a5f f954 096c 47f9 0c19 55d6 8bef 72c0\nSHA-1:   a904 b34e 7e61 9de7 7fc9 f265 4036 f523 3d63 f3b4\nSHA-256: 66d9 c865 668c d1ac 681b 8dd8 f342 5008 fe66 672d 122d 12f9 c45d d994 4550 6ec7",
+      "data": {
+       "subject": {
+        "commonName": "kube-apiserver",
+        "organizationName": "SecLab"
+       },
+       "issuer": {
+        "commonName": "kube-apiserver",
+        "organizationName": "SecLab"
+       },
+       "pubkey": {
+        "type": "rsa",
+        "bits": "2048",
+        "modulus": "C99382B96705AD4B74EBDD5E0C54FA4F7DAF13500AE290A036C1EA705993527055AAD452160E0DD9E2E9FD47A1CDC7E49387E8898A6D9C15954594BF465D3FF7F3F2C465CF569C7A960164F808C18EA8E8DD4F9F9FF073F46E52157D4F298932F284CBC7C95A98E86225D66A0132E25B33DA4F354EB300A5F39C1F31EE3B2B23F5AD8E8D01228CD01B5F4AE833BD9C5398E0E7B8837443F5C2DDDC0C33DAAE00C5E5E6FF7557C191D9D542DCD19E261E3D7ADB5E02A4E790819C8AE2AFF8EE8ADDD2AAB7231581EBE32E7C03E7B7B06AF8193FB6918B7AF31F7D26B34B17C5994247CDDAD9FE58D05A9A732DE65A3EC414DEED9C301C8A52813085C383B990A3",
+        "exponent": "65537"
+       },
+       "extensions": [
+        {
+         "name": "X509v3 Subject Key Identifier",
+         "value": "25:42:C2:F6:6D:F0:53:24:1E:DF:BB:D1:D6:28:21:2E:6E:30:77:96"
+        },
+        {
+         "name": "X509v3 Authority Key Identifier",
+         "value": "25:42:C2:F6:6D:F0:53:24:1E:DF:BB:D1:D6:28:21:2E:6E:30:77:96"
+        },
+        {
+         "name": "X509v3 Basic Constraints",
+         "value": "CA:TRUE",
+         "critical": "true"
+        },
+        {
+         "name": "X509v3 Subject Alternative Name",
+         "value": "DNS:kubernetes.default.svc, DNS:payments.internal.seclab.test, IP Address:10.96.0.1"
+        }
+       ],
+       "sig_algo": "sha256WithRSAEncryption",
+       "validity": {
+        "notBefore": "2026-11-06T00:03:39",
+        "notAfter": "2036-11-03T00:03:39"
+       },
+       "md5": "0a5ff954096c47f90c1955d68bef72c0",
+       "sha1": "a904b34e7e619de77fc9f2654036f5233d63f3b4",
+       "sha256": "66d9c865668cd1ac681b8dd8f3425008fe66672d122d12f9c45dd99445506ec7"
+      },
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  Server: kubelet \n  Date: Fri, 06 Nov 2026 08:57:56 GMT\n  Content-Type: application/json\n  \n  (Request type: GET)\n",
+      "data": null,
+      "failed": false
+     },
+     "ssl-enum-ciphers": {
+      "output": "\n  TLSv1.2: \n    ciphers: \n      TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (ecdh_x25519) - A\n      TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (ecdh_x25519) - A\n      TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (ecdh_x25519) - A\n      TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (ecdh_x25519) - A\n      TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (ecdh_x25519) - A\n    compressors: \n      NULL\n    cipher preference: server\n  TLSv1.3: \n    ciphers: \n      TLS_AKE_WITH_AES_256_GCM_SHA384 (X25519MLKEM768) - A\n      TLS_AKE_WITH_CHACHA20_POLY1305_SHA256 (X25519MLKEM768) - A\n      TLS_AKE_WITH_AES_128_GCM_SHA256 (X25519MLKEM768) - A\n    cipher preference: server\n  least strength: A",
+      "data": {
+       "TLSv1.2": {
+        "ciphers": [
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+          "kex_info": "ecdh_x25519",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+          "kex_info": "ecdh_x25519",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256",
+          "kex_info": "ecdh_x25519",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384",
+          "kex_info": "ecdh_x25519",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+          "kex_info": "ecdh_x25519",
+          "strength": "A"
+         }
+        ],
+        "compressors": [
+         "NULL"
+        ],
+        "cipher preference": "server"
+       },
+       "TLSv1.3": {
+        "ciphers": [
+         {
+          "name": "TLS_AKE_WITH_AES_256_GCM_SHA384",
+          "kex_info": "X25519MLKEM768",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_AKE_WITH_CHACHA20_POLY1305_SHA256",
+          "kex_info": "X25519MLKEM768",
+          "strength": "A"
+         },
+         {
+          "name": "TLS_AKE_WITH_AES_128_GCM_SHA256",
+          "kex_info": "X25519MLKEM768",
+          "strength": "A"
+         }
+        ],
+        "cipher preference": "server"
+       },
+       "least strength": "A"
+      },
+      "failed": false
+     },
+     "probe:kubelet": {
+      "output": "GET /pods -> 200, found PodList",
+      "data": null,
+      "failed": false
+     }
+    },
+    "995": {
+     "pop3-capabilities": {
+      "output": "SASL(PLAIN XOAUTH2) UIDL",
+      "data": null,
+      "failed": false
+     },
+     "fingerprint-strings": {
+      "output": "\n  NULL: \n    +OK POP3 GreenMail Server v2.1.15 ready",
+      "data": {
+       "NULL": "\n    +OK POP3 GreenMail Server v2.1.15 ready"
+      },
+      "failed": false
+     },
+     "ssl-cert": {
+      "output": "Subject: commonName=GreenMail selfsigned Test Certificate/organizationName=Icegreen Technologies/countryName=US\nIssuer: commonName=GreenMail selfsigned Test Certificate/organizationName=Icegreen Technologies/countryName=US\nPublic Key type: rsa\nPublic Key bits: 2048\nSignature Algorithm: sha256WithRSAEncryption\nNot valid before: 2026-10-25T14:56:51\nNot valid after:  2029-01-27T14:56:51\nMD5:     5c13 687a 63b0 0b61 aa1b 1eb4 ba65 8dc7\nSHA-1:   aedd 6d82 c855 c720 c048 493b 94b9 39ca b17d be0f\nSHA-256: 6f68 3470 0eab 112f 764d c24a 9c8e 8ed1 85a5 ce81 1bd1 7687 d015 9639 49b8 4ae1",
+      "data": {
+       "subject": {
+        "commonName": "GreenMail selfsigned Test Certificate",
+        "countryName": "US",
+        "organizationName": "Icegreen Technologies",
+        "organizationalUnitName": "GreenMail"
+       },
+       "issuer": {
+        "commonName": "GreenMail selfsigned Test Certificate",
+        "countryName": "US",
+        "organizationName": "Icegreen Technologies",
+        "organizationalUnitName": "GreenMail"
+       },
+       "pubkey": {
+        "type": "rsa",
+        "bits": "2048",
+        "modulus": "BEAE34AD8549E527C93E2B0ED3E2CAF81F24FE2E70C67AA09AFDD854FA11C77822C7CE9AE44DA36DB27F10089054E12A5596D83827DD94BDE45D6353375ECCBDDE7B2D908640389FF7B65684EFEEBF9463E83CF25DB672A5926F69CB5BC0F950C31506058A8421FD3C8947870508BEDE0619D623090821456D92A65A97E5100779E695B317A46C4A217CBAE244C8ABE940B2A3CD6A06DAC01E9D9368D12AF8957968F4D340B0D7D7A7EEB9CE4442842A46E8355A43B26D039DC5238F714E2BBFF04EA3198F813C1F0A69787FBE82ED41D1D8CB4B02D89F21FE2C0E56D829194AA2004A7ACEAE23F79D210E75BFE0D30C55095CA430C305DC36F657CE8A1C7D77",
+        "exponent": "65537"
+       },
+       "sig_algo": "sha256WithRSAEncryption",
+       "validity": {
+        "notBefore": "2026-10-25T14:56:51",
+        "notAfter": "2029-01-27T14:56:51"
+       },
+       "md5": "5c13687a63b00b61aa1b1eb4ba658dc7",
+       "sha1": "aedd6d82c855c720c048493b94b939cab17dbe0f",
+       "sha256": "6f6834700eab112f764dc24a9c8e8ed185a5ce811bd17687d015963949b84ae1"
+      },
+      "failed": false
+     }
+    },
+    "9000": {
+     "http-methods": {
+      "output": "\n  Supported Methods: GET",
+      "data": {
+       "Supported Methods": [
+        "GET"
+       ]
+      },
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  Server: AdminConsole/1.0 \n  Date: Fri, 06 Nov 2026 08:57:44 GMT\n  Content-Type: text/html\n  \n  (Request type: GET)\n",
+      "data": null,
+      "failed": false
+     },
+     "fingerprint-strings": {
+      "output": "\n  GetRequest: \n    HTTP/1.0 200 OK\n    Server: AdminConsole/1.0 \n    Date: Fri, 06 Nov 2026 08:56:23 GMT\n    Content-Type: text/html\n    <!DOCTYPE html><html><head><title>Storage Admin Console</title></head><body><h1>Storage Admin Console</h1><p>No login configured.</p></body></html>\n  HTTPOptions: \n    HTTP/1.0 501 Unsupported method ('OPTIONS')\n    Server: AdminConsole/1.0 \n    Date: Fri, 06 Nov 2026 08:56:23 GMT\n    Connection: close\n    Content-Type: text/html;charset=utf-8\n    Content-Length: 360\n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 501</p>\n    <p>Message: Unsupported method ('OPTIONS').</p>\n    <p>Error code explanation: 501 - Server does not support this operation.</p>\n    </body>\n    </html>\n  Help: \n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 400</p>\n    <p>Message: Bad request syntax ('HELP').</p>\n    <p>Error code explanation: 400 - Bad request syntax or unsupported method.</p>\n    </body>\n    </html>\n  RTSPRequest: \n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 400</p>\n    <p>Message: Bad request version ('RTSP/1.0').</p>\n    <p>Error code explanation: 400 - Bad request syntax or unsupported method.</p>\n    </body>\n    </html>",
+      "data": {
+       "GetRequest": "\n    HTTP/1.0 200 OK\n    Server: AdminConsole/1.0 \n    Date: Fri, 06 Nov 2026 08:56:23 GMT\n    Content-Type: text/html\n    <!DOCTYPE html><html><head><title>Storage Admin Console</title></head><body><h1>Storage Admin Console</h1><p>No login configured.</p></body></html>",
+       "HTTPOptions": "\n    HTTP/1.0 501 Unsupported method ('OPTIONS')\n    Server: AdminConsole/1.0 \n    Date: Fri, 06 Nov 2026 08:56:23 GMT\n    Connection: close\n    Content-Type: text/html;charset=utf-8\n    Content-Length: 360\n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 501</p>\n    <p>Message: Unsupported method ('OPTIONS').</p>\n    <p>Error code explanation: 501 - Server does not support this operation.</p>\n    </body>\n    </html>",
+       "Help": "\n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 400</p>\n    <p>Message: Bad request syntax ('HELP').</p>\n    <p>Error code explanation: 400 - Bad request syntax or unsupported method.</p>\n    </body>\n    </html>",
+       "RTSPRequest": "\n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 400</p>\n    <p>Message: Bad request version ('RTSP/1.0').</p>\n    <p>Error code explanation: 400 - Bad request syntax or unsupported method.</p>\n    </body>\n    </html>"
+      },
+      "failed": false
+     },
+     "probe:admin-console": {
+      "output": "GET / -> 200, found No login configured",
+      "data": null,
+      "failed": false
+     }
+    },
+    "143": {
+     "imap-capabilities": {
+      "output": "MOVE LITERAL+ IDLE UIDPLUS SORT CAPABILITY OK QUOTAA0001 IMAP4rev1 AUTH=XOAUTH2 completed SASL-IR",
+      "data": null,
+      "failed": false
+     },
+     "fingerprint-strings": {
+      "output": "\n  GenericLines: \n    * OK IMAP4rev1 Server GreenMail v2.1.15 ready\n    Protocol Error: Was expecting <tag SPACE command [arguments]>\n    Protocol Error: Was expecting <tag SPACE command [arguments]>\n  GetRequest: \n    * OK IMAP4rev1 Server GreenMail v2.1.15 ready\n    Invalid command.\n    Protocol Error: Was expecting <tag SPACE command [arguments]>\n  NULL: \n    * OK IMAP4rev1 Server GreenMail v2.1.15 ready",
+      "data": {
+       "GenericLines": "\n    * OK IMAP4rev1 Server GreenMail v2.1.15 ready\n    Protocol Error: Was expecting <tag SPACE command [arguments]>\n    Protocol Error: Was expecting <tag SPACE command [arguments]>",
+       "GetRequest": "\n    * OK IMAP4rev1 Server GreenMail v2.1.15 ready\n    Invalid command.\n    Protocol Error: Was expecting <tag SPACE command [arguments]>",
+       "NULL": "\n    * OK IMAP4rev1 Server GreenMail v2.1.15 ready"
+      },
+      "failed": false
+     }
+    },
+    "3306": {
+     "mysql-empty-password": {
+      "output": "\n  root account has empty password\n",
+      "data": null,
+      "failed": false
+     },
+     "mysql-info": {
+      "output": "\n  Protocol: 10\n  Version: 5.7.44\n  Thread ID: 31\n  Capabilities flags: 65535\n  Some Capabilities: Support41Auth, Speaks41ProtocolOld, SupportsTransactions, InteractiveClient, SupportsCompression, DontAllowDatabaseTableColumn, Speaks41ProtocolNew, SwitchToSSLAfterHandshake, IgnoreSigpipes, LongColumnFlag, ODBCClient, SupportsLoadDataLocal, IgnoreSpaceBeforeParenthesis, ConnectWithDatabase, LongPassword, FoundRows, SupportsMultipleStatments, SupportsAuthPlugins, SupportsMultipleResults\n  Status: Autocommit\n  Salt: gsWG8AY\\x010M\\x01u#&\rh\\x04l]}\n  Auth Plugin Name: mysql_native_password",
+      "data": {
+       "Protocol": "10",
+       "Version": "5.7.44",
+       "Thread ID": "31",
+       "Capabilities flags": "65535",
+       "Some Capabilities": [
+        "Support41Auth",
+        "Speaks41ProtocolOld",
+        "SupportsTransactions",
+        "InteractiveClient",
+        "SupportsCompression",
+        "DontAllowDatabaseTableColumn",
+        "Speaks41ProtocolNew",
+        "SwitchToSSLAfterHandshake",
+        "IgnoreSigpipes",
+        "LongColumnFlag",
+        "ODBCClient",
+        "SupportsLoadDataLocal",
+        "IgnoreSpaceBeforeParenthesis",
+        "ConnectWithDatabase",
+        "LongPassword",
+        "FoundRows",
+        "SupportsMultipleStatments",
+        "SupportsAuthPlugins",
+        "SupportsMultipleResults"
+       ],
+       "Status": "Autocommit",
+       "Salt": "gsWG8AY\\x010M\\x01u#&\rh\\x04l]}",
+       "Auth Plugin Name": "mysql_native_password"
+      },
+      "failed": false
+     }
+    },
+    "445": {
+     "smb2-security-mode": {
+      "output": "\n  3.1.1: \n    Message signing enabled but not required",
+      "data": {
+       "3.1.1": [
+        "Message signing enabled but not required"
+       ]
+      },
+      "failed": false
+     },
+     "smb-protocols": {
+      "output": "\n  dialects: \n    2.0.2\n    2.1\n    3.0\n    3.0.2\n    3.1.1",
+      "data": {
+       "dialects": [
+        "2.0.2",
+        "2.1",
+        "3.0",
+        "3.0.2",
+        "3.1.1"
+       ]
+      },
+      "failed": false
+     }
+    },
+    "5432": {},
+    "6379": {
+     "redis-info": {
+      "output": "\n  Version: 6.0.20\n  Operating System: Linux 6.18.54.1-microsoft-standard-WSL2 x86_64\n  Architecture: 64 bits\n  Process ID: 1\n  Used CPU (sys): 34.557474\n  Used CPU (user): 21.186535\n  Connected clients: 1\n  Connected slaves: 0\n  Used memory: 846.33K\n  Role: master\n  Bind addresses: \n    0.0.0.0\n  Client connections: \n    172.18.0.1",
+      "data": {
+       "Version": "6.0.20",
+       "Operating System": "Linux 6.18.54.1-microsoft-standard-WSL2 x86_64",
+       "Architecture": "64 bits",
+       "Process ID": "1",
+       "Used CPU (sys)": "34.557474",
+       "Used CPU (user)": "21.186535",
+       "Connected clients": "1",
+       "Connected slaves": "0",
+       "Used memory": "846.33K",
+       "Role": "master",
+       "Bind addresses": [
+        "0.0.0.0"
+       ],
+       "Client connections": [
+        "172.18.0.1"
+       ]
+      },
+      "failed": false
+     }
+    },
+    "993": {
+     "ssl-cert": {
+      "output": "Subject: commonName=GreenMail selfsigned Test Certificate/organizationName=Icegreen Technologies/countryName=US\nIssuer: commonName=GreenMail selfsigned Test Certificate/organizationName=Icegreen Technologies/countryName=US\nPublic Key type: rsa\nPublic Key bits: 2048\nSignature Algorithm: sha256WithRSAEncryption\nNot valid before: 2026-10-25T14:56:51\nNot valid after:  2029-01-27T14:56:51\nMD5:     5c13 687a 63b0 0b61 aa1b 1eb4 ba65 8dc7\nSHA-1:   aedd 6d82 c855 c720 c048 493b 94b9 39ca b17d be0f\nSHA-256: 6f68 3470 0eab 112f 764d c24a 9c8e 8ed1 85a5 ce81 1bd1 7687 d015 9639 49b8 4ae1",
+      "data": {
+       "subject": {
+        "commonName": "GreenMail selfsigned Test Certificate",
+        "countryName": "US",
+        "organizationName": "Icegreen Technologies",
+        "organizationalUnitName": "GreenMail"
+       },
+       "issuer": {
+        "commonName": "GreenMail selfsigned Test Certificate",
+        "countryName": "US",
+        "organizationName": "Icegreen Technologies",
+        "organizationalUnitName": "GreenMail"
+       },
+       "pubkey": {
+        "type": "rsa",
+        "bits": "2048",
+        "modulus": "BEAE34AD8549E527C93E2B0ED3E2CAF81F24FE2E70C67AA09AFDD854FA11C77822C7CE9AE44DA36DB27F10089054E12A5596D83827DD94BDE45D6353375ECCBDDE7B2D908640389FF7B65684EFEEBF9463E83CF25DB672A5926F69CB5BC0F950C31506058A8421FD3C8947870508BEDE0619D623090821456D92A65A97E5100779E695B317A46C4A217CBAE244C8ABE940B2A3CD6A06DAC01E9D9368D12AF8957968F4D340B0D7D7A7EEB9CE4442842A46E8355A43B26D039DC5238F714E2BBFF04EA3198F813C1F0A69787FBE82ED41D1D8CB4B02D89F21FE2C0E56D829194AA2004A7ACEAE23F79D210E75BFE0D30C55095CA430C305DC36F657CE8A1C7D77",
+        "exponent": "65537"
+       },
+       "sig_algo": "sha256WithRSAEncryption",
+       "validity": {
+        "notBefore": "2026-10-25T14:56:51",
+        "notAfter": "2029-01-27T14:56:51"
+       },
+       "md5": "5c13687a63b00b61aa1b1eb4ba658dc7",
+       "sha1": "aedd6d82c855c720c048493b94b939cab17dbe0f",
+       "sha256": "6f6834700eab112f764dc24a9c8e8ed185a5ce811bd17687d015963949b84ae1"
+      },
+      "failed": false
+     },
+     "fingerprint-strings": {
+      "output": "\n  GenericLines: \n    * OK IMAP4rev1 Server GreenMail v2.1.15 ready\n    Protocol Error: Was expecting <tag SPACE command [arguments]>\n    Protocol Error: Was expecting <tag SPACE command [arguments]>\n  GetRequest: \n    * OK IMAP4rev1 Server GreenMail v2.1.15 ready\n    Invalid command.\n    Protocol Error: Was expecting <tag SPACE command [arguments]>\n  NULL: \n    * OK IMAP4rev1 Server GreenMail v2.1.15 ready",
+      "data": {
+       "GenericLines": "\n    * OK IMAP4rev1 Server GreenMail v2.1.15 ready\n    Protocol Error: Was expecting <tag SPACE command [arguments]>\n    Protocol Error: Was expecting <tag SPACE command [arguments]>",
+       "GetRequest": "\n    * OK IMAP4rev1 Server GreenMail v2.1.15 ready\n    Invalid command.\n    Protocol Error: Was expecting <tag SPACE command [arguments]>",
+       "NULL": "\n    * OK IMAP4rev1 Server GreenMail v2.1.15 ready"
+      },
+      "failed": false
+     },
+     "imap-capabilities": {
+      "output": "LITERAL+ MOVE AUTH=XOAUTH2 CAPABILITY QUOTAA0001 SASL-IR IDLE UIDPLUS completed IMAP4rev1 OK SORT",
+      "data": null,
+      "failed": false
+     }
+    },
+    "8009": {
+     "ajp-methods": {
+      "output": "\n  Supported methods: GET HEAD POST OPTIONS\n",
+      "data": null,
+      "failed": false
+     },
+     "ajp-headers": {
+      "output": "\n  Content-Type: text/html;charset=UTF-8\n",
+      "data": null,
+      "failed": false
+     }
+    },
+    "5900": {
+     "vnc-info": {
+      "output": "\n  Protocol version: 3.8\n  Security types: \n    None (1)\n  WARNING: Server does not require authentication",
+      "data": {
+       "Protocol version": "3.8",
+       "Security types": [
+        {
+         "name": "None",
+         "type": "1"
+        }
+       ],
+       "WARNING": "Server does not require authentication"
+      },
+      "failed": false
+     }
+    },
+    "11211": {
+     "memcached-info": {
+      "output": "\n  Process ID: 1\n  Uptime: 18512 seconds\n  Server time: 2026-11-06T07:12:41\n  Architecture: 64 bit\n  Used CPU (user): 3.746876\n  Used CPU (system): 2.971573\n  Current connections: 10\n  Total connections: 18\n  Maximum connections: 1024\n  TCP Port: 11211\n  UDP Port: 11211\n  Authentication: no",
+      "data": {
+       "Process ID": "1",
+       "Uptime": "18512 seconds",
+       "Server time": "2026-11-06T07:12:41",
+       "Architecture": "64 bit",
+       "Used CPU (user)": "3.746876",
+       "Used CPU (system)": "2.971573",
+       "Current connections": "10",
+       "Total connections": "18",
+       "Maximum connections": "1024",
+       "TCP Port": "11211",
+       "UDP Port": "11211",
+       "Authentication": "no"
+      },
+      "failed": false
+     }
+    },
+    "27017": {
+     "mongodb-info": {
+      "output": "\n  MongoDB Build info\n    maxBsonObjectSize = 16777216\n    ok = 1.0\n    modules\n    versionArray\n      0 = 4\n      1 = 4\n      2 = 30\n      3 = 0\n    bits = 64\n    buildEnvironment\n      distarch = x86_64\n      cxx = /opt/mongodbtoolchain/v3/bin/g++: g++ (GCC) 8.5.0\n      ccflags = -ffp-contract=off -fno-omit-frame-pointer -fno-strict-aliasing -fasynchronous-unwind-tables -ggdb -pthread -Wall -Wsign-compare -Wno-unknown-pragmas -Winvalid-pch -Werror -O2 -Wno-unused-local-typedefs -Wno-unused-function -Wno-deprecated-declarations -Wno-unused-const-variable -Wno-unused-but-set-variable -Wno-missing-braces -fstack-protector-strong -fno-builtin-memcmp\n      target_os = linux\n      target_arch = x86_64\n      distmod = ubuntu2004\n      cppdefines = SAFEINT_USE_INTRINSICS 0 PCRE_STATIC NDEBUG _XOPEN_SOURCE 700 _GNU_SOURCE _FORTIFY_SOURCE 2 BOOST_THREAD_VERSION 5 BOOST_THREAD_USES_DATETIME BOOST_SYSTEM_NO_DEPRECATED BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS BOOST_ENABLE_ASSERT_DEBUG_HANDLER BOOST_LOG_NO_SHORTHAND_NAMES BOOST_LOG_USE_NATIVE_SYSLOG BOOST_LOG_WITHOUT_THREAD_ATTR ABSL_FORCE_ALIGNED_ACCESS\n      linkflags = -pthread -Wl,-z,now -rdynamic -Wl,--fatal-warnings -fstack-protector-strong -fuse-ld=gold -Wl,--no-threads -Wl,--build-id -Wl,--hash-style=gnu -Wl,-z,noexecstack -Wl,--warn-execstack -Wl,-z,relro -Wl,-z,origin -Wl,--enable-new-dtags\n      cxxflags = -Woverloaded-virtual -Wno-maybe-uninitialized -fsized-deallocation -std=c++17\n      cc = /opt/mongodbtoolchain/v3/bin/gcc: gcc (GCC) 8.5.0\n    gitVersion = 4d7fa6a6260d25c5caa971dce10561690cb79dea\n    javascriptEngine = mozjs\n    storageEngines\n      0 = biggie\n      1 = devnull\n      2 = ephemeralForTest\n      3 = wiredTiger\n    allocator = tcmalloc\n    openssl\n      compiled = OpenSSL 1.1.1f  31 Mar 2020\n      running = OpenSSL 1.1.1f  31 Mar 2020\n    debug = false\n    sysInfo = deprecated\n    version = 4.4.30\n  Server status\n    indexBulkBuilder\n      filesOpenedForExternalSort = 0\n      filesClosedForExternalSort = 0\n      count = 0\n    trafficRecording\n      running = false\n    version = 4.4.30\n    scramCache\n      SCRAM-SHA-256\n        count = 0\n        hits = 0\n        misses = 0\n      SCRAM-SHA-1\n        count = 0\n        hits = 0\n        misses = 0\n    featureCompatibilityVersion\n      transitioning = 0\n      major = 4\n      minor = 4\n    extra_info\n      page_reclaims = 18524\n      page_faults = 78\n      output_blocks = 0\n      involuntary_context_switches = 2659\n      system_time_us = 57450353\n      voluntary_context_switches = 648017\n      user_time_us = 122441981\n      maximum_resident_set_kb = 105112\n      input_blocks = 0\n      note = fields vary by platform\n    security\n      authentication\n        mechanisms\n          MONGODB-X509\n            authenticate\n              successful = 0\n              received = 0\n            speculativeAuthenticate\n              successful = 0\n              received = 0\n          SCRAM-SHA-256\n            authenticate\n              successful = 0\n              received = 0\n            speculativeAuthenticate\n              successful = 0\n              received = 0\n          SCRAM-SHA-1\n            authenticate\n              successful = 0\n              received = 0\n            speculativeAuthenticate\n              successful = 0\n              received = 0\n    tcmalloc\n      generic\n        current_allocated_bytes = 93578480\n        heap_size = 103800832\n      tcmalloc\n        pageheap_total_commit_bytes = 115625984\n        pageheap_scavenge_count = 13\n        release_rate = 1.0\n        pageheap_decommit_count = 13\n        aggressive_memory_decommit = 0\n        current_total_thread_cache_bytes = 848664\n        pageheap_total_decommit_bytes = 11845632\n        transfer_cache_free_bytes = 212352\n        pageheap_free_bytes = 8933376\n        pageheap_unmapped_bytes = 20480\n        pageheap_commit_count = 112\n        central_cache_free_bytes = 211792\n        total_free_bytes = 1273656\n        pageheap_committed_bytes = 103780352\n        formattedString = ------------------------------------------------\n        MALLOC:       93578808 (   89.2 MiB) Bytes in use by application\n        MALLOC: +      8933376 (    8.5 MiB) Bytes in page heap freelist\n        MALLOC: +       209488 (    0.2 MiB) Bytes in central cache freelist\n        MALLOC: +       212352 (    0.2 MiB) Bytes in transfer cache freelist\n        MALLOC: +       846328 (    0.8 MiB) Bytes in thread cache freelists\n        MALLOC: +      2752512 (    2.6 MiB) Bytes in malloc metadata\n        MALLOC:   ------------\n        MALLOC: =    106532864 (  101.6 MiB) Actual memory used (physical + swap)\n        MALLOC: +        20480 (    0.0 MiB) Bytes released to OS (aka unmapped)\n        MALLOC:   ------------\n        MALLOC: =    106553344 (  101.6 MiB) Virtual address space used\n        MALLOC:\n        MALLOC:            756              Spans in use\n        MALLOC:             29              Thread heaps in use\n        MALLOC:           4096              Tcmalloc page size\n        ------------------------------------------------\n        Call ReleaseFreeMemory() to release freelist memory to the OS (via madvise()).\n        Bytes released to the OS take up virtual address space but no physical memory.\n        max_total_thread_cache_bytes = 504365056\n        spinlock_total_delay_ns = 243745\n        pageheap_reserve_count = 58\n        thread_cache_free_bytes = 849400\n        pageheap_total_reserve_bytes = 103800832\n    opcountersRepl\n      update = 0\n      delete = 0\n      getmore = 0\n      query = 0\n      command = 0\n      insert = 0\n    host = 918e13666c85\n    flowControl\n      isLaggedCount = 0\n      timeAcquiringMicros = 1015\n      targetRateLimit = 1000000000\n      isLaggedTimeMicros = 0\n      isLagged = false\n      sustainerRate = 0\n      enabled = true\n      locksPerKiloOp = 0.0\n    opReadConcernCounters\n      available = 0\n      none = 63\n      linearizable = 0\n      majority = 0\n      local = 0\n      snapshot = 0\n    uptimeMillis = 24843363\n    process = mongod\n    locks\n      ParallelBatchWriterMode\n        acquireCount\n          r = 644\n      FeatureCompatibilityVersion\n        acquireCount\n          r = 74522\n          w = 321\n      Database\n        acquireCount\n          W = 6\n          r = 512\n          w = 311\n      Mutex\n        acquireCount\n          r = 830\n      Collection\n        acquireCount\n          W = 2\n          r = 580\n          w = 312\n      ReplicationStateTransition\n        acquireCount\n          w = 19334\n      Global\n        acquireCount\n          W = 4\n          r = 74522\n          w = 317\n    connections\n      totalCreated = 7\n      awaitingTopologyChanges = 0\n      active = 2\n      current = 2\n      available = 838858\n      exhaustIsMaster = 0\n      exhaustHello = 0\n    transportSecurity\n      1.2 = 0\n      1.3 = 0\n      unknown = 0\n      1.1 = 0\n      1.0 = 0\n    transactions\n      retriedCommandsCount = 0\n      currentActive = 0\n      totalPreparedThenCommitted = 0\n      totalCommitted = 0\n      currentPrepared = 0\n      currentInactive = 0\n      totalAborted = 0\n      currentOpen = 0\n      totalStarted = 0\n      totalPrepared = 0\n      retriedStatementsCount = 0\n      transactionsCollectionWriteCount = 0\n      totalPreparedThenAborted = 0\n    twoPhaseCommitCoordinator\n      totalCreated = 0\n      totalCommittedTwoPhaseCommit = 0\n      currentInSteps\n        writingParticipantList = 0\n        waitingForDecisionAcks = 0\n        deletingCoordinatorDoc = 0\n        waitingForVotes = 0\n        writingDecision = 0\n      totalAbortedTwoPhaseCommit = 0\n      totalStartedTwoPhaseCommit = 0\n    ok = 1.0\n    metrics\n      operation\n        scanAndOrder = 0\n        writeConflicts = 0\n      document\n        deleted = 0\n        returned = 0\n        updated = 0\n        inserted = 0\n      queryExecutor\n        scannedObjects = 0\n        scanned = 0\n        collectionScans\n          nonTailable = 0\n          total = 0\n      ttl\n        deletedDocuments = 0\n        passes = 308\n      record\n        moves = 0\n      operatorCounters\n        match\n          $gte = 0\n          $sampleRate = 0\n          $elemMatch = 0\n          $size = 0\n          $ne = 0\n          $bitsAllSet = 0\n          $geoIntersects = 0\n          $bitsAnyClear = 0\n          $type = 0\n          $lt = 62\n          $text = 0\n          $nor = 0\n          $regex = 0\n          $all = 0\n          $or = 0\n          $alwaysFalse = 0\n          $in = 0\n          $lte = 0\n          $and = 0\n          $alwaysTrue = 0\n          $comment = 0\n          $bitsAllClear = 0\n          $nearSphere = 0\n          $where = 0\n          $bitsAnySet = 0\n          $expr = 0\n          $exists = 0\n          $jsonSchema = 0\n          $not = 0\n          $eq = 0\n          $nin = 0\n          $gt = 0\n          $mod = 0\n          $geoWithin = 0\n          $near = 0\n        expressions\n          $split = 0\n          $rtrim = 0\n          $indexOfArray = 0\n          $trunc = 0\n          $ne = 0\n          $setEquals = 0\n          $ceil = 0\n          $acos = 0\n          $anyElementTrue = 0\n          $cosh = 0\n          $lt = 0\n          $tan = 0\n          $arrayElemAt = 0\n          $stdDevPop = 0\n          $allElementsTrue = 0\n          $toHashedIndexKey = 0\n          $literal = 0\n          $isoWeekYear = 0\n          $radiansToDegrees = 0\n          $sinh = 0\n          $toInt = 0\n          $concatArrays = 0\n          $indexOfCP = 0\n          $max = 0\n          $sin = 0\n          $tanh = 0\n          $substrCP = 0\n          $bsonSize = 0\n          $toLower = 0\n          $dateToParts = 0\n          $sum = 0\n          $ltrim = 0\n          $stdDevSamp = 0\n          $binarySize = 0\n          $add = 0\n          $dayOfYear = 0\n          $setUnion = 0\n          $multiply = 0\n          $or = 0\n          $strcasecmp = 0\n          $min = 0\n          $slice = 0\n          $dateToString = 0\n          $dateFromString = 0\n          $convert = 0\n          $isoWeek = 0\n          $asinh = 0\n          $mergeObjects = 0\n          $round = 0\n          $regexFindAll = 0\n          $reverseArray = 0\n          $acosh = 0\n          $toString = 0\n          $cond = 0\n          $setIntersection = 0\n          $replaceOne = 0\n          $cos = 0\n          $trim = 0\n          $strLenCP = 0\n          $toDate = 0\n          $millisecond = 0\n          $isoDayOfWeek = 0\n          $let = 0\n          $first = 0\n          $abs = 0\n          $range = 0\n          $toDecimal = 0\n          $in = 0\n          $regexMatch = 0\n          $and = 0\n          $switch = 0\n          $minute = 0\n          $toLong = 0\n          $avg = 0\n          $regexFind = 0\n          $filter = 0\n          $reduce = 0\n          $meta = 0\n          $gte = 0\n          $replaceAll = 0\n          $atan = 0\n          $toUpper = 0\n          $size = 0\n          $floor = 0\n          $toObjectId = 0\n          $subtract = 0\n          $toDouble = 0\n          $zip = 0\n          $dateFromParts = 0\n          $year = 0\n          $week = 0\n          $type = 0\n          $degreesToRadians = 0\n          $isNumber = 0\n          $setDifference = 0\n          $strLenBytes = 0\n          $divide = 0\n          $substrBytes = 0\n          $ln = 0\n          $atan2 = 0\n          $exp = 0\n          $map = 0\n          $hour = 0\n          $log10 = 0\n          $_internalJsEmit = 0\n          $last = 0\n          $const = 0\n          $toBool = 0\n          $eq = 0\n          $atanh = 0\n          $arrayToObject = 0\n          $sqrt = 0\n          $lte = 0\n          $dayOfMonth = 0\n          $log = 0\n          $isArray = 0\n          $second = 0\n          $month = 0\n          $function = 0\n          $substr = 0\n          $ifNull = 0\n          $objectToArray = 0\n          $mod = 0\n          $asin = 0\n          $rand = 0\n          $cmp = 0\n          $setIsSubset = 0\n          $not = 0\n          $dayOfWeek = 0\n          $pow = 0\n          $gt = 0\n          $indexOfBytes = 0\n          $_internalKeyStringValue = 0\n          $concat = 0\n      commands\n        _configsvrBalancerStart\n          total = 0\n          failed = 0\n        _transferMods\n          total = 0\n          failed = 0\n        dropDatabase\n          total = 0\n          failed = 0\n        stopRecordingTraffic\n          total = 0\n          failed = 0\n        aggregate\n          allowDiskUseTrue = 0\n          total = 0\n          failed = 0\n        _configsvrEnableSharding\n          total = 0\n          failed = 0\n        getCmdLineOpts\n          total = 0\n          failed = 0\n        fsyncUnlock\n          total = 0\n          failed = 0\n        whatsmyuri\n          total = 0\n          failed = 0\n        planCacheClear\n          total = 0\n          failed = 0\n        authenticate\n          total = 0\n          failed = 0\n        _addShard\n          total = 0\n          failed = 0\n        _configsvrBalancerCollectionStatus\n          total = 0\n          failed = 0\n        dbStats\n          total = 0\n          failed = 0\n        find\n          total = 63\n          failed = 0\n        _configsvrMoveChunk\n          total = 0\n          failed = 0\n        _configsvrBalancerStop\n          total = 0\n          failed = 0\n        killOp\n          total = 0\n          failed = 0\n        commitTransaction\n          total = 0\n          failed = 0\n        replSetGetStatus\n          total = 0\n          failed = 0\n        _configsvrRefineCollectionShardKey\n          total = 0\n          failed = 0\n        _migrateClone\n          total = 0\n          failed = 0\n        _flushRoutingTableCacheUpdates\n          total = 0\n          failed = 0\n        killAllSessionsByPattern\n          total = 0\n          failed = 0\n        internalRenameIfOptionsAndIndexesMatch\n          total = 0\n          failed = 0\n        _killOperations\n          total = 0\n          failed = 0\n        _recvChunkStart\n          total = 0\n          failed = 0\n        _recvChunkStatus\n          total = 0\n          failed = 0\n        checkShardingIndex\n          total = 0\n          failed = 0\n        replSetRequestVotes\n          total = 0\n          failed = 0\n        _configsvrUpdateZoneKeyRange\n          total = 0\n          failed = 0\n        unsetSharding\n          total = 0\n          failed = 0\n        getDatabaseVersion\n          total = 0\n          failed = 0\n        logRotate\n          total = 0\n          failed = 0\n        distinct\n          total = 0\n          failed = 0\n        _recvChunkCommit\n          total = 0\n          failed = 0\n        replSetMaintenance\n          total = 0\n          failed = 0\n        insert\n          total = 0\n          failed = 0\n        count\n          total = 0\n          failed = 0\n        _configsvrMovePrimary\n          total = 0\n          failed = 0\n        createIndexes\n          total = 1\n          failed = 0\n        _configsvrCommitChunkMerge\n          total = 0\n          failed = 0\n        killCursors\n          total = 0\n          failed = 0\n        dropAllUsersFromDatabase\n          total = 0\n          failed = 0\n        collStats\n          total = 0\n          failed = 0\n        _configsvrCommitChunksMerge\n          total = 0\n          failed = 0\n        listCommands\n          total = 0\n          failed = 0\n        _shardsvrCloneCatalogData\n          total = 0\n          failed = 0\n        buildInfo\n          total = 1\n          failed = 0\n        abortTransaction\n          total = 0\n          failed = 0\n        createRole\n          total = 0\n          failed = 0\n        dataSize\n          total = 0\n          failed = 0\n        drop\n          total = 0\n          failed = 0\n        usersInfo\n          total = 0\n          failed = 0\n        appendOplogNote\n          total = 0\n          failed = 0\n        revokeRolesFromUser\n          total = 0\n          failed = 0\n        features\n          total = 0\n          failed = 0\n        voteCommitIndexBuild\n          total = 0\n          failed = 0\n        validate\n          total = 0\n          failed = 0\n        delete\n          total = 0\n          failed = 0\n        killSessions\n          total = 0\n          failed = 0\n        getDiagnosticData\n          total = 0\n          failed = 0\n        create\n          total = 0\n          validator\n            total = 0\n            jsonSchema = 0\n            failed = 0\n          failed = 0\n        updateRole\n          total = 0\n          failed = 0\n        resetError\n          total = 0\n          failed = 0\n        update\n          arrayFilters = 0\n          total = 0\n          pipeline = 0\n          failed = 0\n        top\n          total = 0\n          failed = 0\n        getMore\n          total = 0\n          failed = 0\n        startSession\n          total = 0\n          failed = 0\n        startRecordingTraffic\n          total = 0\n          failed = 0\n        splitVector\n          total = 0\n          failed = 0\n        splitChunk\n          total = 0\n          failed = 0\n        lockInfo\n          total = 0\n          failed = 0\n        mapReduce\n          total = 0\n          failed = 0\n        shardingState\n          total = 0\n          failed = 0\n        saslStart\n          total = 0\n          failed = 0\n        setShardVersion\n          total = 0\n          failed = 0\n        setProfilingFilterGlobally\n          total = 0\n          failed = 0\n        setParameter\n          total = 0\n          failed = 0\n        dropAllRolesFromDatabase\n          total = 0\n          failed = 0\n        setIndexCommitQuorum\n          total = 0\n          failed = 0\n        replSetAbortPrimaryCatchUp\n          total = 0\n          failed = 0\n        _configsvrAddShardToZone\n          total = 0\n          failed = 0\n        flushRouterConfig\n          total = 0\n          failed = 0\n        _isSelf\n          total = 0\n          failed = 0\n        dropUser\n          total = 0\n          failed = 0\n        reIndex\n          total = 0\n          failed = 0\n        serverStatus\n          total = 5\n          failed = 0\n        _configsvrClearJumboFlag\n          total = 0\n          failed = 0\n        applyOps\n          total = 0\n          failed = 0\n        shardConnPoolStats\n          total = 0\n          failed = 0\n        planCacheClearFilters\n          total = 0\n          failed = 0\n        cloneCollectionAsCapped\n          total = 0\n          failed = 0\n        saslContinue\n          total = 0\n          failed = 0\n        planCacheSetFilter\n          total = 0\n          failed = 0\n        rolesInfo\n          total = 0\n          failed = 0\n        waitForFailPoint\n          total = 0\n          failed = 0\n        autoSplitVector\n          total = 0\n          failed = 0\n        revokeRolesFromRole\n          total = 0\n          failed = 0\n        collMod\n          total = 0\n          validator\n            total = 0\n            jsonSchema = 0\n            failed = 0\n          failed = 0\n        replSetReconfig\n          total = 0\n          failed = 0\n        replSetStepDownWithForce\n          total = 0\n          failed = 0\n        replSetUpdatePosition\n          total = 0\n          failed = 0\n        _shardsvrMovePrimary\n          total = 0\n          failed = 0\n        replSetSyncFrom\n          total = 0\n          failed = 0\n        prepareTransaction\n          total = 0\n          failed = 0\n        isMaster\n          total = 0\n          failed = 0\n        getnonce\n          total = 0\n          failed = 0\n        _configsvrCreateCollection\n          total = 0\n          failed = 0\n        replSetGetRBID\n          total = 0\n          failed = 0\n        findAndModify\n          arrayFilters = 0\n          total = 0\n          pipeline = 0\n          failed = 0\n        listCollections\n          total = 0\n          failed = 0\n        dropConnections\n          total = 0\n          failed = 0\n        getParameter\n          total = 0\n          failed = 0\n        _configsvrDropDatabase\n          total = 0\n          failed = 0\n        hostInfo\n          total = 0\n          failed = 0\n        replSetStepDown\n          total = 0\n          failed = 0\n        geoSearch\n          total = 0\n          failed = 0\n        replSetResizeOplog\n          total = 0\n          failed = 0\n        moveChunk\n          total = 0\n          failed = 0\n        dropIndexes\n          total = 0\n          failed = 0\n        profile\n          total = 0\n          failed = 0\n        revokePrivilegesFromRole\n          total = 0\n          failed = 0\n        replSetInitiate\n          total = 0\n          failed = 0\n        compact\n          total = 0\n          failed = 0\n        replSetHeartbeat\n          total = 0\n          failed = 0\n        replSetGetConfig\n          total = 0\n          failed = 0\n        _mergeAuthzCollections\n          total = 0\n          failed = 0\n        coordinateCommitTransaction\n          total = 0\n          failed = 0\n        replSetFreeze\n          total = 0\n          failed = 0\n        <UNKNOWN> = 0\n        renameCollection\n          total = 0\n          failed = 0\n        refreshSessions\n          total = 0\n          failed = 0\n        endSessions\n          total = 0\n          failed = 0\n        _configsvrAddShard\n          total = 0\n          failed = 0\n        setDefaultRWConcern\n          total = 0\n          failed = 0\n        _configsvrCommitChunkSplit\n          total = 0\n          failed = 0\n        fsync\n          total = 0\n          failed = 0\n        ping\n          total = 0\n          failed = 0\n        _configsvrCommitChunkMigration\n          total = 0\n          failed = 0\n        getLastError\n          total = 0\n          failed = 0\n        mergeChunks\n          total = 0\n          failed = 0\n        mapreduce\n          shardedfinish\n            total = 0\n            failed = 0\n        _getUserCacheGeneration\n          total = 0\n          failed = 0\n        shutdown\n          total = 0\n          failed = 0\n        cleanupOrphaned\n          total = 0\n          failed = 0\n        _recvChunkAbort\n          total = 0\n          failed = 0\n        grantRolesToRole\n          total = 0\n          failed = 0\n        driverOIDTest\n          total = 0\n          failed = 0\n        listDatabases\n          total = 2\n          failed = 0\n        dbCheck\n          total = 0\n          failed = 0\n        availableQueryOptions\n          total = 0\n          failed = 0\n        _configsvrEnsureChunkVersionIsGreaterThan\n          total = 0\n          failed = 0\n        dbHash\n          total = 0\n          failed = 0\n        connectionStatus\n          total = 0\n          failed = 0\n        getDefaultRWConcern\n          total = 0\n          failed = 0\n        getLog\n          total = 0\n          failed = 0\n        setFeatureCompatibilityVersion\n          total = 0\n          failed = 0\n        invalidateUserCache\n          total = 0\n          failed = 0\n        planCacheListFilters\n          total = 0\n          failed = 0\n        _shardsvrShardCollection\n          total = 0\n          failed = 0\n        currentOp\n          total = 0\n          failed = 0\n        _configsvrShardCollection\n          total = 0\n          failed = 0\n        _flushDatabaseCacheUpdates\n          total = 0\n          failed = 0\n        _configsvrCommitMovePrimary\n          total = 0\n          failed = 0\n        convertToCapped\n          total = 0\n          failed = 0\n        _getNextSessionMods\n          total = 0\n          failed = 0\n        _configsvrRepairShardedCollectionChunksHistory\n          total = 0\n          failed = 0\n        replSetStepUp\n          total = 0\n          failed = 0\n        hello\n          total = 0\n          failed = 0\n        killAllSessions\n          total = 0\n          failed = 0\n        updateUser\n          total = 0\n          failed = 0\n        dropRole\n          total = 0\n          failed = 0\n        _cloneCollectionOptionsFromPrimaryShard\n          total = 0\n          failed = 0\n        explain\n          total = 0\n          failed = 0\n        createUser\n          total = 0\n          failed = 0\n        filemd5\n          total = 0\n          failed = 0\n        getShardMap\n          total = 0\n          failed = 0\n        _configsvrRemoveShard\n          total = 0\n          failed = 0\n        _configsvrCreateDatabase\n          total = 0\n          failed = 0\n        listIndexes\n          total = 126\n          failed = 2\n        _configsvrBalancerStatus\n          total = 0\n          failed = 0\n        grantPrivilegesToRole\n          total = 0\n          failed = 0\n        grantRolesToUser\n          total = 0\n          failed = 0\n        connPoolStats\n          total = 0\n          failed = 0\n        getShardVersion\n          total = 0\n          failed = 0\n        _configsvrRemoveShardFromZone\n          total = 0\n          failed = 0\n        _configsvrDropCollection\n          total = 0\n          failed = 0\n        _shardsvrSetAllowMigrations\n          total = 0\n          failed = 0\n        logout\n          total = 0\n          failed = 0\n        connPoolSync\n          total = 0\n          failed = 0\n      aggStageCounters\n        $mergeCursors = 0\n        $replaceWith = 0\n        $facet = 0\n        $merge = 0\n        $group = 0\n        $listSessions = 0\n        $project = 0\n        $unset = 0\n        $listLocalSessions = 0\n        $_internalInhibitOptimization = 0\n        $lookup = 0\n        $limit = 0\n        $unwind = 0\n        $documents = 0\n        $bucketAuto = 0\n        $redact = 0\n        $addFields = 0\n        $unionWith = 0\n        $sortByCount = 0\n        $indexStats = 0\n        $out = 0\n        $sample = 0\n        $count = 0\n        $match = 0\n        $set = 0\n        $_internalSplitPipeline = 0\n        $bucket = 0\n        $currentOp = 0\n        $collStats = 0\n        $changeStream = 0\n        $geoNear = 0\n        $queue = 0\n        $graphLookup = 0\n        $sort = 0\n        $skip = 0\n        $_internalApplyOplogUpdate = 0\n        $replaceRoot = 0\n        $planCacheStats = 0\n      repl\n        buffer\n          maxSizeBytes = 0\n          count = 0\n          sizeBytes = 0\n        apply\n          attemptsToBecomeSecondary = 0\n          batches\n            totalMillis = 0\n            num = 0\n          ops = 0\n          batchSize = 0\n        executor\n          unsignaledEvents = 0\n          pool\n            inProgressCount = 0\n          shuttingDown = false\n          networkInterface = DEPRECATED: getDiagnosticString is deprecated in NetworkInterfaceTL\n          queues\n            networkInProgress = 0\n            sleepers = 0\n        stateTransition\n          userOperationsRunning = 0\n          lastStateTransition = \n          userOperationsKilled = 0\n        syncSource\n          numTimesCouldNotFind = 0\n          numTimesChoseSame = 0\n          numSelections = 0\n          numTimesChoseDifferent = 0\n        initialSync\n          completed = 0\n          failures = 0\n          failedAttempts = 0\n        network\n          replSetUpdatePosition\n            num = 0\n          notPrimaryLegacyUnacknowledgedWrites = 0\n          oplogGetMoresProcessed\n            totalMillis = 0\n            num = 0\n          bytes = 0\n          readersCreated = 0\n          notPrimaryUnacknowledgedWrites = 0\n          getmores\n            num = 0\n            totalMillis = 0\n            numEmptyBatches = 0\n          ops = 0\n      query\n        updateDeleteManyDocumentsTotalCount = 0\n        deleteManyCount = 0\n        updateOneOpStyleBroadcastWithExactIDCount = 0\n        multiPlanner\n          classicCount = 0\n          classicWorks = 0\n          classicMicros = 0\n          histograms\n            classicNumPlans\n              4\n                lowerBound = 16\n                count = 0\n              5\n                lowerBound = 32\n                count = 0\n              2\n                lowerBound = 4\n                count = 0\n              3\n                lowerBound = 8\n                count = 0\n              0\n                lowerBound = 0\n                count = 0\n              1\n                lowerBound = 2\n                count = 0\n            classicMicros\n              4\n                lowerBound = 65536\n                count = 0\n              5\n                lowerBound = 262144\n                count = 0\n              2\n                lowerBound = 4096\n                count = 0\n              3\n                lowerBound = 16384\n                count = 0\n              8\n                lowerBound = 16777216\n                count = 0\n              9\n                lowerBound = 67108864\n                count = 0\n              6\n                lowerBound = 1048576\n                count = 0\n              7\n                lowerBound = 4194304\n                count = 0\n              0\n                lowerBound = 0\n                count = 0\n              1\n                lowerBound = 1024\n                count = 0\n              11\n                lowerBound = 1073741824\n                count = 0\n              10\n                lowerBound = 268435456\n                count = 0\n            classicWorks\n              4\n                lowerBound = 1024\n                count = 0\n              5\n                lowerBound = 2048\n                count = 0\n              2\n                lowerBound = 256\n                count = 0\n              3\n                lowerBound = 512\n                count = 0\n              8\n                lowerBound = 16384\n                count = 0\n              9\n                lowerBound = 32768\n                count = 0\n              6\n                lowerBound = 4096\n                count = 0\n              7\n                lowerBound = 8192\n                count = 0\n              0\n                lowerBound = 0\n                count = 0\n              1\n                lowerBound = 128\n                count = 0\n        updateDeleteManyDocumentsMaxCount = 0\n        updateDeleteManyDurationMaxMs = 0\n        updateDeleteManyDurationTotalMs = 0\n        planCacheTotalSizeEstimateBytes = 0\n        updateManyCount = 0\n      cursor\n        open\n          total = 0\n          pinned = 0\n          noTimeout = 0\n        timedOut = 0\n      getLastError\n        wtime\n          totalMillis = 0\n          num = 0\n        default\n          unsatisfiable = 0\n          wtimeouts = 0\n        wtimeouts = 0\n    mem\n      bits = 64\n      resident = 102\n      supported = true\n      virtual = 1461\n    globalLock\n      currentQueue\n        total = 0\n        readers = 0\n        writers = 0\n      activeClients\n        total = 1\n        readers = 1\n        writers = 0\n      totalTime = 24843447000\n    uptime = 24844.0\n    asserts\n      regular = 0\n      msg = 0\n      rollovers = 0\n      warning = 0\n      user = 4\n    opcounters\n      update = 0\n      delete = 0\n      getmore = 0\n      query = 63\n      command = 135\n      insert = 0\n    uptimeEstimate = 24843\n    electionMetrics\n      electionTimeout\n        successful = 0\n        called = 0\n      numCatchUpsFailedWithReplSetAbortPrimaryCatchUpCmd = 0\n      averageCatchUpOps = 0.0\n      priorityTakeover\n        successful = 0\n        called = 0\n      numStepDownsCausedByHigherTerm = 0\n      numCatchUpsFailedWithError = 0\n      numCatchUpsAlreadyCaughtUp = 0\n      numCatchUpsTimedOut = 0\n      numCatchUpsSkipped = 0\n      catchUpTakeover\n        successful = 0\n        called = 0\n      numCatchUpsFailedWithNewTerm = 0\n      stepUpCmd\n        successful = 0\n        called = 0\n      numCatchUps = 0\n      freezeTimeout\n        successful = 0\n        called = 0\n      numCatchUpsSucceeded = 0\n    logicalSessionRecordCache\n      activeSessionsCount = 0\n      lastSessionsCollectionJobTimestamp = 1793955500603\n      lastSessionsCollectionJobDurationMillis = 0\n      lastSessionsCollectionJobEntriesEnded = 0\n      lastTransactionReaperJobTimestamp = 1793955500647\n      lastTransactionReaperJobDurationMillis = 1\n      sessionCatalogSize = 0\n      lastTransactionReaperJobEntriesCleanedUp = 0\n      lastSessionsCollectionJobCursorsClosed = 0\n      sessionsCollectionJobCount = 63\n      transactionReaperJobCount = 63\n      lastSessionsCollectionJobEntriesRefreshed = 0\n    localTime = 1793955501132\n    opLatencies\n      commands\n        ops = 6\n        latency = 20059\n      transactions\n        ops = 0\n        latency = 0\n      reads\n        ops = 0\n        latency = 0\n      writes\n        ops = 0\n        latency = 0\n    pid = 1\n    storageEngine\n      readOnly = false\n      persistent = true\n      oldestRequiredTimestampForCrashRecovery = Timestamp(0, 0)\n      name = wiredTiger\n      supportsPendingDrops = true\n      dropPendingIdents = 0\n      supportsSnapshotReadConcern = true\n      supportsTwoPhaseIndexBuild = true\n      supportsCommittedReads = true\n      backupCursorOpen = false\n    network\n      physicalBytesOut = 201999\n      bytesIn = 502\n      bytesOut = 201999\n      compression\n        zstd\n          compressor\n            bytesOut = 0\n            bytesIn = 0\n          decompressor\n            bytesOut = 0\n            bytesIn = 0\n        snappy\n          compressor\n            bytesOut = 0\n            bytesIn = 0\n          decompressor\n            bytesOut = 0\n            bytesIn = 0\n        zlib\n          compressor\n            bytesOut = 0\n            bytesIn = 0\n          decompressor\n            bytesOut = 0\n            bytesIn = 0\n      numRequests = 8\n      physicalBytesIn = 502\n      serviceExecutorTaskStats\n        threadsRunning = 2\n        executor = passthrough\n      numSlowDNSOperations = 0\n      numSlowSSLOperations = 0\n      tcpFastOpen\n        serverSupported = true\n        accepted = 0\n        kernelSetting = 1\n        clientSupported = true\n    wiredTiger\n      checkpoint-cleanup\n        pages added for eviction = 0\n        pages skipped during tree walk = 0\n        pages visited = 314\n        pages removed = 0\n      log\n        slot close unbuffered waits = 0\n        log sync_dir time duration (usecs) = 14232\n        busy returns attempting to switch slots = 0\n        log sync_dir operations = 1\n        slot join found active slot closed = 0\n        log server thread advances write LSN = 374\n        log sync operations = 688\n        written slots coalesced = 0\n        log server thread write LSN walk skipped = 22178\n        slot join calls yielded = 0\n        log files manually zero-filled = 0\n        pre-allocated log files not ready and missed = 1\n        maximum log file size = 104857600\n        slot join atomic update races = 0\n        slot close lost race = 0\n        total log buffer size = 33554432\n        log records compressed = 337\n        log scan operations = 0\n        log bytes written = 222208\n        total in-memory size of compressed records = 85198\n        slot join calls did not yield = 1605\n        log write operations = 1605\n        logging bytes consolidated = 221696\n        slot join calls slept = 0\n        slot closures = 693\n        yields waiting for previous log file close = 0\n        log flush operations = 184949\n        pre-allocated log files prepared = 2\n        log records too small to compress = 1265\n        log bytes of payload data = 120425\n        slot unbuffered writes = 0\n        log scan records requiring two reads = 0\n        force archive time sleeping (usecs) = 0\n        log records not compressed = 3\n        slot join calls found active slot closed = 0\n        slot join calls atomic updates raced = 0\n        log force write operations skipped = 204918\n        slot transitions unable to find free slot = 0\n        number of pre-allocated log files to create = 2\n        log sync time duration (usecs) = 5330368\n        slot joins yield time (usecs) = 0\n        total size of compressed records = 55709\n        log release advances write LSN = 319\n        pre-allocated log files used = 0\n        log force write operations = 205292\n        records processed by log scan = 0\n      reconciliation\n        leaf-page overflow keys = 0\n        pages written including at least one stop timestamp = 0\n        pages written including an aggregated oldest start timestamp  = 0\n        split objects currently awaiting free = 0\n        pages written including at least one stop transaction ID = 0\n        approximate byte size of transaction IDs in pages written = 4840\n        records written including a stop transaction ID = 0\n        page reconciliation calls that resulted in values with prepared transaction metadata = 0\n        page reconciliation calls = 628\n        records written including a start durable timestamp = 0\n        page reconciliation calls that resulted in values with timestamps = 0\n        maximum milliseconds spent in building a disk image in a reconciliation = 0\n        pages written including an aggregated newest stop timestamp  = 0\n        pages written including at least one start durable timestamp = 0\n        internal-page overflow keys = 0\n        page reconciliation calls that resulted in values with transaction ids = 297\n        pages written including an aggregated newest stop durable timestamp  = 0\n        page reconciliation calls for eviction = 0\n        records written including a stop timestamp = 0\n        maximum milliseconds spent in moving updates to the history store in a reconciliation = 0\n        records written including a start transaction ID = 605\n        pages written including at least one prepare state = 0\n        pages deleted = 0\n        pages written including an aggregated newest stop transaction ID = 0\n        records written including a start timestamp = 0\n        split bytes currently awaiting free = 0\n        pages written including at least one stop durable timestamp = 0\n        pages written including an aggregated prepare = 0\n        maximum milliseconds spent in a reconciliation call = 0\n        pages written including at least one start timestamp = 0\n        pages written including at least one start transaction ID = 297\n        pages written including an aggregated newest start durable timestamp  = 0\n        fast-path pages deleted = 0\n        pages written including an aggregated newest transaction ID  = 0\n        records written including a stop durable timestamp = 0\n        records written including a prepare state = 0\n        approximate byte size of timestamps in pages written = 0\n      lock\n        dhandle lock application thread time waiting (usecs) = 1\n        table read lock acquisitions = 0\n        metadata lock internal thread wait time (usecs) = 0\n        txn global write lock acquisitions = 639\n        txn global read lock acquisitions = 356\n        txn global lock internal thread time waiting (usecs) = 0\n        dhandle lock internal thread time waiting (usecs) = 0\n        metadata lock acquisitions = 308\n        txn global lock application thread time waiting (usecs) = 0\n        dhandle read lock acquisitions = 74018\n        read timestamp queue lock application thread time waiting (usecs) = 0\n        table write lock acquisitions = 10\n        durable timestamp queue lock application thread time waiting (usecs) = 0\n        table lock internal thread time waiting for the table lock (usecs) = 0\n        metadata lock application thread wait time (usecs) = 3\n        durable timestamp queue write lock acquisitions = 0\n        table lock application thread time waiting for the table lock (usecs) = 0\n        dhandle write lock acquisitions = 25\n        durable timestamp queue lock internal thread time waiting (usecs) = 0\n        schema lock application thread wait time (usecs) = 0\n        schema lock acquisitions = 320\n        read timestamp queue read lock acquisitions = 0\n        durable timestamp queue read lock acquisitions = 0\n        checkpoint lock application thread wait time (usecs) = 10\n        schema lock internal thread wait time (usecs) = 0\n        read timestamp queue write lock acquisitions = 0\n        checkpoint lock acquisitions = 308\n        read timestamp queue lock internal thread time waiting (usecs) = 0\n        checkpoint lock internal thread wait time (usecs) = 0\n      cursor\n        cursor search calls = 2767\n        cursor truncate calls = 0\n        cursor prev calls that skip due to a globally visible history store tombstone = 0\n        cursor prev calls = 313\n        cursor operation restarted = 0\n        cursor reserve calls = 0\n        cursor insert key and value bytes = 76545\n        cursor sweeps = 4290\n        cursor search history store calls = 0\n        Total number of times a search near has exited due to prefix config = 0\n        cursor prev calls that skip less than 100 entries = 313\n        cursor modify calls = 0\n        Total number of entries skipped by cursor next calls = 0\n        cursor remove calls = 0\n        cursor next calls = 340\n        cached cursor count = 6\n        Total number of entries skipped by cursor prev calls = 0\n        cursor sweep buckets = 25740\n        cursor insert calls = 674\n        cursor create calls = 96\n        cursor bulk loaded cursor insert calls = 0\n        open cursor count = 6\n        cursor next calls that skip greater than or equal to 100 entries = 0\n        cursor prev calls that skip greater than or equal to 100 entries = 0\n        cursor close calls that result in cache = 148806\n        cursor next calls that skip less than 100 entries = 340\n        cursor sweep cursors examined = 25\n        cursor next calls that skip due to a globally visible history store tombstone = 0\n        cursor modify key and value bytes affected = 0\n        cursors reused from cache = 148800\n        cursor update value size change = 0\n        cursor reset calls = 155315\n        cursor update calls = 0\n        cursor update key and value bytes = 0\n        cursor sweep cursors closed = 0\n        cursor remove key bytes removed = 0\n        cursor search near calls = 313\n        Total number of entries skipped to position the history store cursor = 0\n        cursor modify value bytes modified = 0\n      thread-state\n        active filesystem read calls = 0\n        active filesystem fsync calls = 0\n        active filesystem write calls = 0\n      thread-yield\n        page delete rollback time sleeping for state change (usecs) = 0\n        page acquire eviction blocked = 0\n        data handle lock yielded = 0\n        page acquire read blocked = 0\n        page reconciliation yielded due to child modification = 0\n        page acquire busy blocked = 0\n        page acquire time sleeping (usecs) = 0\n        get reference for page index and slot time sleeping (usecs) = 0\n        connection close yielded for lsm manager shutdown = 0\n        connection close blocked waiting for transaction state stabilization = 0\n        page acquire locked blocked = 0\n        page access yielded due to prepare state change = 0\n        application thread time waiting for cache (usecs) = 0\n        application thread time evicting (usecs) = 0\n      capacity\n        bytes written for checkpoint = 5720072\n        bytes written for log = 222336\n        threshold to call fsync = 0\n        bytes read = 0\n        bytes written total = 5942408\n        time waiting during logging (usecs) = 0\n        time waiting due to total capacity (usecs) = 0\n        time waiting during checkpoint (usecs) = 0\n        bytes written for eviction = 0\n        time waiting during eviction (usecs) = 0\n        time waiting during read (usecs) = 0\n        background fsync file handles considered = 0\n        background fsync file handles synced = 0\n        background fsync time (msecs) = 0\n      perf\n        file system write latency histogram (bucket 1) - 10-49ms = 0\n        file system read latency histogram (bucket 3) - 100-249ms = 0\n        operation read latency histogram (bucket 4) - 1000-9999us = 0\n        file system read latency histogram (bucket 2) - 50-99ms = 0\n        operation read latency histogram (bucket 1) - 100-249us = 2\n        file system write latency histogram (bucket 6) - 1000ms+ = 0\n        file system write latency histogram (bucket 2) - 50-99ms = 0\n        operation read latency histogram (bucket 5) - 10000us+ = 0\n        file system write latency histogram (bucket 3) - 100-249ms = 0\n        operation read latency histogram (bucket 2) - 250-499us = 1\n        file system read latency histogram (bucket 4) - 250-499ms = 0\n        operation write latency histogram (bucket 5) - 10000us+ = 0\n        operation write latency histogram (bucket 1) - 100-249us = 7\n        operation write latency histogram (bucket 4) - 1000-9999us = 0\n        operation write latency histogram (bucket 3) - 500-999us = 0\n        operation write latency histogram (bucket 2) - 250-499us = 1\n        file system read latency histogram (bucket 1) - 10-49ms = 0\n        file system read latency histogram (bucket 5) - 500-999ms = 0\n        file system read latency histogram (bucket 6) - 1000ms+ = 0\n        file system write latency histogram (bucket 4) - 250-499ms = 0\n        file system write latency histogram (bucket 5) - 500-999ms = 0\n        operation read latency histogram (bucket 3) - 500-999us = 0\n      transaction\n        transaction checkpoint generation = 309\n        set timestamp stable updates = 0\n        transaction range of timestamps pinned by the oldest timestamp = 0\n        transaction fsync calls for checkpoint after allocating the transaction ID = 308\n        transaction checkpoints = 308\n        set timestamp durable calls = 0\n        transaction range of timestamps pinned by a checkpoint = 0\n        prepared transactions rolled back = 0\n        rollback to stable updates removed from history store = 0\n        transaction checkpoint prepare most recent time (msecs) = 0\n        transaction checkpoint total time (msecs) = 13550\n        prepared transactions committed = 0\n        transaction checkpoints skipped because database was clean = 0\n        transaction checkpoint most recent time (msecs) = 45\n        transaction checkpoint prepare max time (msecs) = 5\n        set timestamp stable calls = 0\n        prepared transactions rolled back and fix the history store entry with checkpoint reserved transaction id = 0\n        transaction fsync duration for checkpoint after allocating the transaction ID (usecs) = 20526\n        transaction range of IDs currently pinned by a checkpoint = 0\n        transaction checkpoint most recent handles applied = 0\n        transaction checkpoint prepare total time (msecs) = 61\n        rollback to stable tree walk skipping pages = 0\n        transaction checkpoints due to obsolete pages = 0\n        transaction checkpoint prepare currently running = 0\n        transaction begins = 757\n        rollback to stable skipping delete rle = 0\n        Number of prepared updates committed = 0\n        rollback to stable skipping stable rle = 0\n        transaction checkpoint most recent handles walked = 21\n        transaction rollback to stable currently running = 0\n        transaction checkpoint most recent duration for gathering applied handles (usecs) = 0\n        set timestamp durable updates = 0\n        rollback to stable updates aborted = 0\n        transaction checkpoint stop timing stress active = 0\n        sessions scanned in each walk of concurrent sessions = 618092\n        transaction checkpoint prepare min time (msecs) = 0\n        rollback to stable keys removed = 0\n        set timestamp oldest calls = 0\n        transaction checkpoint currently running for history store file = 0\n        rollback to stable inconsistent checkpoint = 0\n        transaction checkpoint most recent handles skipped = 10\n        transaction range of timestamps pinned by the oldest active read timestamp = 0\n        transaction checkpoint most recent duration for gathering skipped handles (usecs) = 38\n        prepared transactions = 0\n        transaction checkpoint min time (msecs) = 15\n        transaction checkpoint currently running = 0\n        transaction read timestamp of the oldest active reader = 0\n        Number of prepared updates = 0\n        transaction range of IDs currently pinned = 0\n        update conflicts = 0\n        Number of prepared updates rolled back = 0\n        transactions committed = 7\n        transaction walk of concurrent sessions = 41741\n        Number of prepared updates repeated on the same key = 0\n        transaction checkpoint max time (msecs) = 676\n        checkpoint has acquired a snapshot for its transaction = 0\n        rollback to stable history store records with stop timestamps older than newer records = 0\n        transaction checkpoint scrub dirty target = 0\n        transactions rolled back = 750\n        transaction checkpoint most recent duration for gathering all handles (usecs) = 61\n        rollback to stable restored updates from history store = 0\n        set timestamp calls = 0\n        prepared transactions rolled back and do not remove the history store entry = 0\n        transaction checkpoint history store file duration (usecs) = 3\n        prepared transactions currently active = 0\n        rollback to stable pages visited = 0\n        query timestamp calls = 18500\n        rollback to stable restored tombstones from history store = 0\n        rollback to stable calls = 0\n        set timestamp oldest updates = 0\n        oldest pinned transaction ID rolled back for eviction = 0\n        race to read prepared update retry = 0\n        rollback to stable keys restored = 0\n        transaction range of timestamps currently pinned = 0\n        rollback to stable sweeping history store keys = 0\n        transaction checkpoint scrub time (msecs) = 0\n      cache\n        percentage overhead = 8\n        forced eviction - pages evicted that were dirty count = 0\n        pages selected for eviction unable to be evicted = 0\n        eviction server unable to reach eviction goal = 0\n        forced eviction - history store pages successfully evicted while session has history store cursor open = 0\n        eviction worker thread stable number = 0\n        maximum bytes configured = 1482686464.0\n        eviction walk target pages reduced due to history store cache pressure = 0\n        eviction walk target strategy only clean pages = 0\n        hazard pointer check entries walked = 0\n        bytes belonging to page images in the cache = 0\n        bytes belonging to the history store table in the cache = 191\n        tracked dirty bytes in the cache = 0\n        history store table on-disk size = 4096\n        eviction calls to get a page found queue empty = 11\n        history store table writes requiring squashed modifies = 0\n        pages seen by eviction walk = 0\n        bytes currently in the cache = 52326\n        history store table truncation to remove range of updates due to out-of-order timestamp update on data page = 0\n        eviction gave up due to detecting an out of order tombstone ahead of the selected on disk update = 0\n        bytes written from cache = 5736979\n        maximum milliseconds spent at a single eviction = 0\n        history store table out-of-order resolved updates that lose their durable timestamp = 0\n        modified pages evicted by application threads = 0\n        page written requiring history store records = 0\n        in-memory page splits = 0\n        pages seen by eviction walk that are already queued = 0\n        eviction passes of a file = 0\n        pages queued for urgent eviction = 0\n        hazard pointer blocked page eviction = 0\n        eviction currently operating in aggressive mode = 0\n        pages read into cache = 0\n        pages queued for urgent eviction from history store due to high dirty content = 0\n        history store table truncation by rollback to stable to remove an unstable update = 0\n        history store score = 0\n        history store table reads = 0\n        eviction gave up due to detecting an out of order tombstone ahead of the selected on disk update after validating the update chain = 0\n        forced eviction - pages evicted that were clean count = 0\n        pages selected for eviction unable to be evicted as the parent page has overflow items = 0\n        history store table reads requiring squashed modifies = 0\n        pages written requiring in-memory restoration = 0\n        eviction walk target pages histogram - 64-128 = 0\n        eviction walks started from root of tree = 0\n        forced eviction - pages evicted that were dirty time (usecs) = 0\n        pages read into cache after truncate = 8\n        eviction walks started from saved location in tree = 0\n        pages evicted by application threads = 0\n        pages selected for eviction unable to be evicted because of active children on an internal page = 0\n        pages removed from the ordinary queue to be queued for urgent eviction = 0\n        eviction walk target strategy both clean and dirty pages = 0\n        eviction calls to get a page found queue empty after locking = 0\n        history store table truncation to remove range of updates due to key being removed from the data page during reconciliation = 0\n        maximum page size seen at eviction = 0\n        forced eviction - pages selected unable to be evicted time = 0\n        eviction gave up due to detecting an out of order on disk value behind the last update on the chain = 0\n        internal pages seen by eviction walk that are already queued = 0\n        eviction walk target pages histogram - 10-31 = 0\n        pages requested from the cache = 7148\n        files with new eviction walks started = 0\n        bytes allocated for updates = 47337\n        eviction worker thread evicting pages = 0\n        tracked dirty pages in the cache = 0\n        internal pages split during eviction = 0\n        eviction calls to get a page = 11\n        eviction walks gave up because they restarted their walk twice = 0\n        tracked bytes belonging to internal pages in the cache = 4159\n        total milliseconds spent inside reentrant history store evictions in a reconciliation = 0\n        the number of times reverse modify inserted to history store = 0\n        forced eviction - history store pages selected while session has history store cursor open = 0\n        pages currently held in the cache = 19\n        pages selected for eviction unable to be evicted because of failure in reconciliation = 0\n        pages queued for urgent eviction during walk = 0\n        eviction walks reached end of tree = 0\n        eviction server candidate queue not empty when topping up = 0\n        pages queued for eviction post lru sorting = 0\n        eviction walks gave up because they saw too many pages and found too few candidates = 0\n        pages walked for eviction = 0\n        hazard pointer maximum array length = 0\n        the number of times full update inserted to history store = 0\n        pages written from cache = 628\n        checkpoint of history store file blocked non-history store page eviction = 0\n        pages selected for eviction unable to be evicted because of race between checkpoint and out of order timestamps handling = 0\n        eviction worker thread active = 4\n        eviction gave up due to detecting out of order timestamps on the update chain after the selected on disk update = 0\n        eviction walks gave up because they saw too many pages and found no candidates = 0\n        eviction empty score = 0\n        application threads page read from disk to cache time (usecs) = 0\n        eviction walks restarted = 0\n        forced eviction - pages selected count = 0\n        eviction state = 64\n        bytes not belonging to page images in the cache = 52326\n        force re-tuning of eviction workers once in a while = 0\n        page split during eviction deepened the tree = 0\n        overflow pages read into cache = 0\n        eviction walks abandoned = 0\n        eviction server candidate queue empty when topping up = 0\n        cache overflow score = 0\n        internal pages evicted = 0\n        eviction worker thread removed = 0\n        forced eviction - pages selected because of too many deleted items count = 0\n        eviction server evicting pages = 0\n        in-memory page passed criteria to be split = 0\n        application threads page read from disk to cache count = 0\n        forced eviction - history store pages failed to evict while session has history store cursor open = 0\n        eviction walk target pages histogram - 0-9 = 0\n        forced eviction - pages selected unable to be evicted count = 0\n        hazard pointer check calls = 0\n        tracked bytes belonging to leaf pages in the cache = 48167\n        eviction server waiting for a leaf page = 10\n        internal pages seen by eviction walk = 0\n        history store table max on-disk size = 0\n        history store table insert calls that returned restart = 0\n        eviction walk target strategy only dirty pages = 0\n        history store table insert calls = 0\n        history store table truncation by rollback to stable to remove an update = 0\n        checkpoint blocked page eviction = 0\n        files with active eviction walks = 0\n        pages read into cache after truncate in prepare state = 0\n        eviction walk most recent sleeps for checkpoint handle gathering = 0\n        history store table out-of-order updates that were fixed up by reinserting with the fixed timestamp = 0\n        application threads page write from cache to disk time (usecs) = 88271\n        bytes dirty in the cache cumulative = 11119761\n        modified pages evicted = 0\n        eviction server slept, because we did not make progress with eviction = 0\n        operations timed out waiting for space in cache = 0\n        pages evicted in parallel with checkpoint = 0\n        leaf pages split during eviction = 0\n        forced eviction - pages evicted that were clean time (usecs) = 0\n        forced eviction - pages selected because of a large number of updates to a single item = 0\n        eviction walk target pages histogram - 32-63 = 0\n        history store table truncation to remove an update = 0\n        application threads page write from cache to disk count = 628\n        bytes read into cache = 0\n        pages queued for eviction = 0\n        history store table reads missed = 0\n        eviction worker thread created = 0\n        unmodified pages evicted = 0\n        eviction walk target pages histogram - 128 and higher = 0\n        internal pages queued for eviction = 0\n      session\n        table alter unchanged and skipped = 0\n        table salvage successful calls = 0\n        session query timestamp calls = 0\n        tiered storage local retention time (secs) = 0\n        tiered operations scheduled = 0\n        table drop successful calls = 0\n        tiered operations dequeued and processed = 0\n        table drop failed calls = 0\n        table verify successful calls = 0\n        table alter triggering checkpoint calls = 0\n        table verify failed calls = 0\n        table compact skipped as process would not reduce file size = 0\n        table alter failed calls = 0\n        table alter successful calls = 0\n        table truncate successful calls = 0\n        table create successful calls = 9\n        table compact successful calls = 0\n        attempts to remove a local object and the object is in use = 0\n        table truncate failed calls = 0\n        table rename successful calls = 0\n        table create failed calls = 0\n        local objects removed = 0\n        table salvage failed calls = 0\n        flush_tier operation calls = 0\n        table rename failed calls = 0\n        open session count = 15\n        table compact failed calls = 0\n        table compact running = 0\n        table compact timeout = 0\n        table compact failed calls due to cache pressure = 0\n      uri = statistics:\n      oplog\n        visibility timestamp = Timestamp(0, 0)\n      snapshot-window-settings\n        total number of SnapshotTooOld errors = 0\n        oldest majority snapshot timestamp available = Jan  1 00:00:00:0\n        cache pressure percentage threshold = 95\n        current cache pressure percentage = 0\n        latest majority snapshot timestamp available = Jan  1 00:00:00:0\n        max target available snapshots window size in seconds = 5\n        current available snapshots window size in seconds = 0\n        target available snapshots window size in seconds = 5\n      concurrentTransactions\n        write\n          available = 128\n          totalTickets = 128\n          out = 0\n        read\n          available = 128\n          totalTickets = 128\n          out = 0\n      block-manager\n        bytes written = 10190848\n        blocks written = 1256\n        number of times the region was remapped via write = 0\n        bytes read = 1257472\n        number of times the file was remapped because it changed size via fallocate or truncate = 0\n        bytes read via memory map API = 0\n        mapped bytes read = 0\n        bytes written via system call API = 0\n        mapped blocks read = 0\n        blocks read = 307\n        bytes read via system call API = 0\n        bytes written via memory map API = 0\n        blocks pre-loaded = 0\n        bytes written for checkpoint = 10190848\n      connection\n        auto adjusting condition wait calls = 112559\n        total write I/Os = 2273\n        pthread mutex condition wait calls = 299181\n        total read I/Os = 631\n        memory re-allocations = 75186\n        memory allocations = 793511\n        pthread mutex shared lock write-lock calls = 19152\n        auto adjusting condition resets = 342\n        pthread mutex shared lock read-lock calls = 313153\n        memory frees = 792554\n        auto adjusting condition wait raced to update timeout and skipped updating = 0\n        total fsync I/Os = 1950\n        hash bucket array size general = 512\n        detected system time went backwards = 0\n        files currently open = 14\n        hash bucket array size for data handles = 512\n      data-handle\n        connection sweep dhandles removed from hash list = 1\n        connection sweep dhandles closed = 0\n        connection sweeps = 1845\n        session sweep attempts = 55\n        connection sweep candidate became referenced = 0\n        connection sweep time-of-death sets = 2505\n        session dhandles swept = 0\n        connection data handle size = 440\n        connection data handles currently active = 21\n        connection sweeps skipped due to checkpoint gathering handles = 0\n",
+      "data": null,
+      "failed": false
+     },
+     "mongodb-databases": {
+      "output": "\n  databases\n    0\n      sizeOnDisk = 40960.0\n      name = admin\n      empty = false\n    1\n      sizeOnDisk = 12288.0\n      name = config\n      empty = false\n    2\n      sizeOnDisk = 40960.0\n      name = local\n      empty = false\n  ok = 1.0\n  totalSize = 94208.0\n",
+      "data": null,
+      "failed": false
+     }
+    },
+    "53": {
+     "dns-nsid": {
+      "output": "\n  NSID: seclab-dns-01 (7365636c61622d646e732d3031)\n  id.server: seclab-dns-01\n  bind.version: BIND 9.11.4-lab",
+      "data": {
+       "NSID": {
+        "raw": "seclab-dns-01",
+        "hex": "7365636c61622d646e732d3031"
+       },
+       "id.server": "seclab-dns-01",
+       "bind.version": "BIND 9.11.4-lab"
+      },
+      "failed": false
+     },
+     "dns-zone-transfer": {
+      "output": "\ncorp.seclab.test.             SOA    ns1.corp.seclab.test. admin.corp.seclab.test.\ncorp.seclab.test.             NS     ns1.corp.seclab.test.\ncorp.seclab.test.             MX     10 mail.corp.seclab.test.\ncorp.seclab.test.             A      192.168.1.250\ncorp.seclab.test.             TXT    \"v=spf1 +all\"\n_dmarc.corp.seclab.test.      TXT    \"v=DMARC1; p=none\"\n_ldap._tcp.corp.seclab.test.  SRV    0 100 389 dc01.corp.seclab.test.\nassets.corp.seclab.test.      CNAME  deleted-bucket.storage.invalid.\ndc01.corp.seclab.test.        A      192.168.1.250\nmail.corp.seclab.test.        A      192.168.1.250\nns1.corp.seclab.test.         A      192.168.1.250\nvpn-old.corp.seclab.test.     A      192.168.1.250\nwww.corp.seclab.test.         A      192.168.1.250\ncorp.seclab.test.             SOA    ns1.corp.seclab.test. admin.corp.seclab.test.\n",
+      "data": null,
+      "failed": false
+     },
+     "fingerprint-strings": {
+      "output": "\n  DNSVersionBindReqTCP: \n    version\n    bind\n    BIND 9.11.4-lab",
+      "data": {
+       "DNSVersionBindReqTCP": "\n    version\n    bind\n    BIND 9.11.4-lab"
+      },
+      "failed": false
+     }
+    },
+    "2379": {
+     "http-methods": {
+      "output": "\n  Supported Methods: GET",
+      "data": {
+       "Supported Methods": [
+        "GET"
+       ]
+      },
+      "failed": false
+     },
+     "http-headers": {
+      "output": "\n  Server: etcd/3.4.0 \n  Date: Fri, 06 Nov 2026 08:58:01 GMT\n  Content-Type: application/json\n  \n  (Request type: GET)\n",
+      "data": null,
+      "failed": false
+     },
+     "http-title": {
+      "output": "Site doesn't have a title (application/json).",
+      "data": null,
+      "failed": false
+     },
+     "fingerprint-strings": {
+      "output": "\n  GetRequest: \n    HTTP/1.0 404 Not Found\n    Server: etcd/3.4.0 \n    Date: Fri, 06 Nov 2026 08:56:41 GMT\n    Content-Type: application/json\n    {\"message\": \"page not found\"}\n  HTTPOptions: \n    HTTP/1.0 501 Unsupported method ('OPTIONS')\n    Server: etcd/3.4.0 \n    Date: Fri, 06 Nov 2026 08:56:41 GMT\n    Connection: close\n    Content-Type: text/html;charset=utf-8\n    Content-Length: 360\n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 501</p>\n    <p>Message: Unsupported method ('OPTIONS').</p>\n    <p>Error code explanation: 501 - Server does not support this operation.</p>\n    </body>\n    </html>\n  RTSPRequest: \n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 400</p>\n    <p>Message: Bad request version ('RTSP/1.0').</p>\n    <p>Error code explanation: 400 - Bad request syntax or unsupported method.</p>\n    </body>\n    </html>\n  docker: \n    HTTP/1.0 200 OK\n    Server: etcd/3.4.0 \n    Date: Fri, 06 Nov 2026 08:56:41 GMT\n    Content-Type: application/json\n    {\"etcdserver\": \"3.4.0\", \"etcdcluster\": \"3.4.0\"}",
+      "data": {
+       "GetRequest": "\n    HTTP/1.0 404 Not Found\n    Server: etcd/3.4.0 \n    Date: Fri, 06 Nov 2026 08:56:41 GMT\n    Content-Type: application/json\n    {\"message\": \"page not found\"}",
+       "HTTPOptions": "\n    HTTP/1.0 501 Unsupported method ('OPTIONS')\n    Server: etcd/3.4.0 \n    Date: Fri, 06 Nov 2026 08:56:41 GMT\n    Connection: close\n    Content-Type: text/html;charset=utf-8\n    Content-Length: 360\n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 501</p>\n    <p>Message: Unsupported method ('OPTIONS').</p>\n    <p>Error code explanation: 501 - Server does not support this operation.</p>\n    </body>\n    </html>",
+       "RTSPRequest": "\n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 400</p>\n    <p>Message: Bad request version ('RTSP/1.0').</p>\n    <p>Error code explanation: 400 - Bad request syntax or unsupported method.</p>\n    </body>\n    </html>",
+       "docker": "\n    HTTP/1.0 200 OK\n    Server: etcd/3.4.0 \n    Date: Fri, 06 Nov 2026 08:56:41 GMT\n    Content-Type: application/json\n    {\"etcdserver\": \"3.4.0\", \"etcdcluster\": \"3.4.0\"}"
+      },
+      "failed": false
+     },
+     "probe:etcd": {
+      "output": "GET /v2/keys -> 200, found \"node\"",
+      "data": null,
+      "failed": false
+     }
+    },
+    "2375": {
+     "docker-version": {
+      "output": "\n  Os: linux\n  Arch: amd64\n  GoVersion: go1.13.15\n  Version: 20.10.7\n  ApiVersion: 1.41\n  KernelVersion: 5.10.16-seclab-mock\n  GitCommit: b0f5bc3",
+      "data": {
+       "Os": "linux",
+       "Arch": "amd64",
+       "GoVersion": "go1.13.15",
+       "Version": "20.10.7",
+       "ApiVersion": "1.41",
+       "KernelVersion": "5.10.16-seclab-mock",
+       "GitCommit": "b0f5bc3"
+      },
+      "failed": false
+     },
+     "fingerprint-strings": {
+      "output": "\n  GetRequest: \n    HTTP/1.0 404 Not Found\n    Server: Docker/20.10.7 \n    Date: Fri, 06 Nov 2026 08:58:23 GMT\n    Content-Type: application/json\n    {\"message\": \"page not found\"}\n  HTTPOptions: \n    HTTP/1.0 501 Unsupported method ('OPTIONS')\n    Server: Docker/20.10.7 \n    Date: Fri, 06 Nov 2026 08:58:23 GMT\n    Connection: close\n    Content-Type: text/html;charset=utf-8\n    Content-Length: 360\n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 501</p>\n    <p>Message: Unsupported method ('OPTIONS').</p>\n    <p>Error code explanation: 501 - Server does not support this operation.</p>\n    </body>\n    </html>\n  RTSPRequest: \n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 400</p>\n    <p>Message: Bad request version ('RTSP/1.0').</p>\n    <p>Error code explanation: 400 - Bad request syntax or unsupported method.</p>\n    </body>\n    </html>\n  docker: \n    HTTP/1.0 200 OK\n    Server: Docker/20.10.7 \n    Date: Fri, 06 Nov 2026 08:58:23 GMT\n    Content-Type: application/json\n    {\"Version\": \"20.10.7\", \"ApiVersion\": \"1.41\", \"GitCommit\": \"b0f5bc3\", \"GoVersion\": \"go1.13.15\", \"Os\": \"linux\", \"Arch\": \"amd64\", \"KernelVersion\": \"5.10.16-seclab-mock\"}",
+      "data": {
+       "GetRequest": "\n    HTTP/1.0 404 Not Found\n    Server: Docker/20.10.7 \n    Date: Fri, 06 Nov 2026 08:58:23 GMT\n    Content-Type: application/json\n    {\"message\": \"page not found\"}",
+       "HTTPOptions": "\n    HTTP/1.0 501 Unsupported method ('OPTIONS')\n    Server: Docker/20.10.7 \n    Date: Fri, 06 Nov 2026 08:58:23 GMT\n    Connection: close\n    Content-Type: text/html;charset=utf-8\n    Content-Length: 360\n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 501</p>\n    <p>Message: Unsupported method ('OPTIONS').</p>\n    <p>Error code explanation: 501 - Server does not support this operation.</p>\n    </body>\n    </html>",
+       "RTSPRequest": "\n    <!DOCTYPE HTML>\n    <html lang=\"en\">\n    <head>\n    <meta charset=\"utf-8\">\n    <title>Error response</title>\n    </head>\n    <body>\n    <h1>Error response</h1>\n    <p>Error code: 400</p>\n    <p>Message: Bad request version ('RTSP/1.0').</p>\n    <p>Error code explanation: 400 - Bad request syntax or unsupported method.</p>\n    </body>\n    </html>",
+       "docker": "\n    HTTP/1.0 200 OK\n    Server: Docker/20.10.7 \n    Date: Fri, 06 Nov 2026 08:58:23 GMT\n    Content-Type: application/json\n    {\"Version\": \"20.10.7\", \"ApiVersion\": \"1.41\", \"GitCommit\": \"b0f5bc3\", \"GoVersion\": \"go1.13.15\", \"Os\": \"linux\", \"Arch\": \"amd64\", \"KernelVersion\": \"5.10.16-seclab-mock\"}"
+      },
+      "failed": false
+     },
+     "probe:docker-api": {
+      "output": "GET /version -> 200, found ApiVersion",
+      "data": null,
+      "failed": false
+     }
+    },
+    "2376": {
+     "ssl-cert": {
+      "output": "Subject: commonName=kube-apiserver/organizationName=SecLab\nSubject Alternative Name: DNS:kubernetes.default.svc, DNS:payments.internal.seclab.test, IP Address:10.96.0.1\nIssuer: commonName=kube-apiserver/organizationName=SecLab\nPublic Key type: rsa\nPublic Key bits: 2048\nSignature Algorithm: sha256WithRSAEncryption\nNot valid before: 2026-11-06T00:03:39\nNot valid after:  2036-11-03T00:03:39\nMD5:     0a5f f954 096c 47f9 0c19 55d6 8bef 72c0\nSHA-1:   a904 b34e 7e61 9de7 7fc9 f265 4036 f523 3d63 f3b4\nSHA-256: 66d9 c865 668c d1ac 681b 8dd8 f342 5008 fe66 672d 122d 12f9 c45d d994 4550 6ec7",
+      "data": {
+       "subject": {
+        "commonName": "kube-apiserver",
+        "organizationName": "SecLab"
+       },
+       "issuer": {
+        "commonName": "kube-apiserver",
+        "organizationName": "SecLab"
+       },
+       "pubkey": {
+        "type": "rsa",
+        "bits": "2048",
+        "modulus": "C99382B96705AD4B74EBDD5E0C54FA4F7DAF13500AE290A036C1EA705993527055AAD452160E0DD9E2E9FD47A1CDC7E49387E8898A6D9C15954594BF465D3FF7F3F2C465CF569C7A960164F808C18EA8E8DD4F9F9FF073F46E52157D4F298932F284CBC7C95A98E86225D66A0132E25B33DA4F354EB300A5F39C1F31EE3B2B23F5AD8E8D01228CD01B5F4AE833BD9C5398E0E7B8837443F5C2DDDC0C33DAAE00C5E5E6FF7557C191D9D542DCD19E261E3D7ADB5E02A4E790819C8AE2AFF8EE8ADDD2AAB7231581EBE32E7C03E7B7B06AF8193FB6918B7AF31F7D26B34B17C5994247CDDAD9FE58D05A9A732DE65A3EC414DEED9C301C8A52813085C383B990A3",
+        "exponent": "65537"
+       },
+       "extensions": [
+        {
+         "name": "X509v3 Subject Key Identifier",
+         "value": "25:42:C2:F6:6D:F0:53:24:1E:DF:BB:D1:D6:28:21:2E:6E:30:77:96"
+        },
+        {
+         "name": "X509v3 Authority Key Identifier",
+         "value": "25:42:C2:F6:6D:F0:53:24:1E:DF:BB:D1:D6:28:21:2E:6E:30:77:96"
+        },
+        {
+         "name": "X509v3 Basic Constraints",
+         "value": "CA:TRUE",
+         "critical": "true"
+        },
+        {
+         "name": "X509v3 Subject Alternative Name",
+         "value": "DNS:kubernetes.default.svc, DNS:payments.internal.seclab.test, IP Address:10.96.0.1"
+        }
+       ],
+       "sig_algo": "sha256WithRSAEncryption",
+       "validity": {
+        "notBefore": "2026-11-06T00:03:39",
+        "notAfter": "2036-11-03T00:03:39"
+       },
+       "md5": "0a5ff954096c47f90c1955d68bef72c0",
+       "sha1": "a904b34e7e619de77fc9f2654036f5233d63f3b4",
+       "sha256": "66d9c865668cd1ac681b8dd8f3425008fe66672d122d12f9c45dd99445506ec7"
+      },
+      "failed": false
+     },
+     "probe:docker-api": {
+      "output": "GET /version -> 200, found ApiVersion",
+      "data": null,
+      "failed": false
+     }
+    }
+   }
+  }
+ }
+}

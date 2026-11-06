@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rules.schema.json",
+  "title": "Classification rules",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "rules"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "severity",
+          "title",
+          "confidence",
+          "remediation",
+          "when"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "severity": {
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low",
+              "info"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "confidence": {
+            "enum": [
+              "confirmed",
+              "likely",
+              "version-only"
+            ]
+          },
+          "remediation": {
+            "type": "string"
+          },
+          "when": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "op"
+              ],
+              "properties": {
+                "op": {
+                  "enum": [
+                    "any_script_lacks",
+                    "any_script_ran",
+                    "data_contains",
+                    "data_date_past",
+                    "data_equal",
+                    "data_exists",
+                    "data_has_any_key",
+                    "data_in",
+                    "protocol_is",
+                    "script_absent",
+                    "script_contains",
+                    "script_lacks",
+                    "script_matches",
+                    "script_ran",
+                    "service_in",
+                    "version_is"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

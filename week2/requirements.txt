@@ -1,0 +1,6 @@
+dnspython
+python-nmap
+requests
+jsonschema
+flask
+python-dotenv

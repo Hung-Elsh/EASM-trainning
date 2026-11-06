@@ -1,0 +1,15 @@
+$TTL 300
+@           IN SOA ns1.corp.seclab.test. admin.corp.seclab.test. ( 2026110601 3600 600 86400 300 )
+            IN NS  ns1.corp.seclab.test.
+            IN MX  10 mail.corp.seclab.test.
+            IN A   192.168.1.250
+            IN TXT "v=spf1 +all"
+_dmarc      IN TXT "v=DMARC1; p=none"
+ns1         IN A   192.168.1.250
+mail        IN A   192.168.1.250
+www         IN A   192.168.1.250
+dc01        IN A   192.168.1.250
+vpn-old     IN A   192.168.1.250
+; dangling record: the target no longer exists, a subdomain takeover risk
+assets      IN CNAME deleted-bucket.storage.invalid.
+_ldap._tcp  IN SRV 0 100 389 dc01.corp.seclab.test.

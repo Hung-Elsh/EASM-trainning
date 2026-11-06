@@ -1,0 +1,4 @@
+-- FAKE lab data: a forgotten database backup left in a public web folder
+CREATE TABLE users (id INT, username VARCHAR(50), email VARCHAR(100), password_md5 CHAR(32));
+INSERT INTO users VALUES (1, 'admin', 'admin@seclab.test', '21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO users VALUES (2, 'hr.manager', 'hr@seclab.test', '5f4dcc3b5aa765d61d8327deb882cf99');

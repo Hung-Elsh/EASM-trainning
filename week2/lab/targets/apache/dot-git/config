@@ -1,0 +1,6 @@
+[core]
+	repositoryformatversion = 0
+[remote "origin"]
+	url = https://git.seclab.test/corp/site.git
+[user]
+	name = fake-dev

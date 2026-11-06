@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "common_ports": {
+    "tcp": [21, 22, 23, 25, 53, 80, 110, 135, 139, 143, 443, 445, 465, 587, 993, 995, 1433, 2222, 2375, 2376, 2379, 3000, 3306, 3389, 5432, 5900, 6379, 6443, 8000, 8009, 8080, 8081, 8082, 8443, 8888, 9000, 9090, 9200, 10250, 11211, 27017],
+    "udp": [53, 123, 161, 1900, 11211]
+  },
+  "web_services": ["http", "docker"],
+  "no_web_check_services": ["tcpwrapped", "msrpc", "netbios-ssn", "vmrdp"],
+  "no_active_products": ["Microsoft HTTPAPI"],
+  "workers": 6,
+  "script_timeout": "90s",
+  "script_args": {
+    "dns-zone-transfer.domain": "corp.seclab.test"
+  },
+  "service_scripts": {
+    "http": ["http-title", "http-headers", "http-methods", "http-robots.txt", "ssl-cert", "ssl-enum-ciphers", "http-cookie-flags", "http-git", "http-apache-server-status", "http-trace"],
+    "ssh": ["ssh2-enum-algos", "ssh-auth-methods"],
+    "ftp": ["ftp-anon"],
+    "telnet": ["telnet-encryption"],
+    "redis": ["redis-info"],
+    "mysql": ["mysql-info", "mysql-empty-password"],
+    "mongodb": ["mongodb-info", "mongodb-databases"],
+    "mongod": ["mongodb-info", "mongodb-databases"],
+    "memcached": ["memcached-info"],
+    "memcache": ["memcached-info"],
+    "postgresql": ["ssl-cert"],
+    "ms-sql-s": ["ms-sql-info", "ms-sql-ntlm-info"],
+    "smtp": ["smtp-commands", "smtp-open-relay", "ssl-cert"],
+    "submission": ["smtp-commands", "smtp-open-relay", "ssl-cert"],
+    "smtps": ["smtp-commands", "smtp-open-relay", "ssl-cert"],
+    "pop3": ["pop3-capabilities", "ssl-cert"],
+    "pop3s": ["pop3-capabilities", "ssl-cert"],
+    "imap": ["imap-capabilities", "ssl-cert"],
+    "imaps": ["imap-capabilities", "ssl-cert"],
+    "domain": ["dns-nsid", "dns-recursion", "dns-zone-transfer"],
+    "ajp13": ["ajp-headers", "ajp-methods"],
+    "vnc": ["vnc-info"],
+    "ms-wbt-server": ["rdp-enum-encryption"],
+    "docker": ["docker-version", "ssl-cert"],
+    "microsoft-ds": ["smb-protocols", "smb2-security-mode"],
+    "ntp": ["ntp-info"],
+    "snmp": ["snmp-info", "snmp-sysdescr"],
+    "upnp": ["upnp-info"]
+  },
+  "active_web_scripts": ["http-enum", "http-default-accounts", "http-csrf"],
+  "http_probes": [
+    {"id": "env-file", "method": "GET", "path": "/.env", "status": 200, "contains": "password"},
+    {"id": "config-backup", "method": "GET", "path": "/wp-config.php.bak", "status": 200, "contains": "DB_PASSWORD"},
+    {"id": "webdav", "method": "OPTIONS", "path": "/dav/", "status": 200, "contains": "PROPFIND"},
+    {"id": "api-users", "method": "GET", "path": "/api/v1/users", "status": 200, "contains": "email"},
+    {"id": "api-config", "method": "GET", "path": "/api/v1/config", "status": 200, "contains": "db_password"},
+    {"id": "sqli-error", "method": "GET", "path": "/product?id=1%27", "status": 200, "contains": "SQL syntax"},
+    {"id": "xss-reflected", "method": "GET", "path": "/search?q=%3Cscript%3Ealert(1)%3C/script%3E", "status": 200, "contains": "<script>alert(1)</script>"},
+    {"id": "path-traversal", "method": "GET", "path": "/page?file=../../../../../../etc/passwd", "status": 200, "contains": "root:"},
+    {"id": "elasticsearch", "method": "GET", "path": "/_cluster/health", "status": 200, "contains": "cluster_name"},
+    {"id": "prometheus", "method": "GET", "path": "/api/v1/targets", "status": 200, "contains": "activeTargets"},
+    {"id": "admin-console", "method": "GET", "path": "/", "status": 200, "contains": "No login configured"},
+    {"id": "docker-api", "method": "GET", "path": "/version", "status": 200, "contains": "ApiVersion"},
+    {"id": "kubernetes-api", "method": "GET", "path": "/version", "status": 200, "contains": "gitVersion"},
+    {"id": "kubelet", "method": "GET", "path": "/pods", "status": 200, "contains": "PodList"},
+    {"id": "etcd", "method": "GET", "path": "/v2/keys", "status": 200, "contains": "\"node\""}
+  ]
+}

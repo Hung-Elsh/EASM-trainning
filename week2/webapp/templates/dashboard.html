@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EASM Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="page-header">
+    <h1>EASM Dashboard</h1>
+    <p class="meta">Scope: seclab.test / 192.168.1.248/29 &middot; Last scan: <span id="last-scan">-</span></p>
+  </header>
+
+  <main>
+    <p id="error-banner" class="error" role="alert" hidden></p>
+
+    <div id="content">
+      <section class="tiles" aria-label="Summary">
+        <div class="tile"><span class="tile-label">Score</span><span class="tile-value"><span id="tile-score">-</span><small> / 100</small></span></div>
+        <div class="tile"><span class="tile-label">Hosts</span><span class="tile-value" id="tile-hosts">-</span></div>
+        <div class="tile"><span class="tile-label">Open services</span><span class="tile-value" id="tile-services">-</span></div>
+        <div class="tile"><span class="tile-label">Critical findings</span><span class="tile-value" id="tile-critical">-</span></div>
+        <div class="tile"><span class="tile-label">High findings</span><span class="tile-value" id="tile-high">-</span></div>
+      </section>
+
+      <section class="charts" aria-label="Charts">
+        <figure class="card">
+          <figcaption>Findings by severity</figcaption>
+          <div class="chart-box short"><canvas id="chart-severity" role="img" aria-label="Findings by severity"></canvas></div>
+        </figure>
+        <figure class="card">
+          <figcaption>Top services (open ports)</figcaption>
+          <div class="chart-box"><canvas id="chart-services" role="img" aria-label="Top services"></canvas></div>
+        </figure>
+        <figure class="card">
+          <figcaption>Riskiest ports (score penalty)</figcaption>
+          <div class="chart-box"><canvas id="chart-ports" role="img" aria-label="Riskiest ports"></canvas></div>
+        </figure>
+      </section>
+
+      <section class="card" aria-label="Findings">
+        <h2>Findings <span class="count" id="findings-count"></span></h2>
+        <div class="filters">
+          <label>Severity
+            <select id="filter-severity">
+              <option value="">All</option>
+              <option>critical</option><option>high</option><option>medium</option><option>low</option><option>info</option>
+            </select>
+          </label>
+          <label>Confidence
+            <select id="filter-confidence">
+              <option value="">All</option>
+              <option>confirmed</option><option>likely</option><option>version-only</option>
+            </select>
+          </label>
+        </div>
+        <div class="table-scroll findings-scroll">
+          <table id="findings-table">
+            <thead>
+              <tr><th>Severity</th><th>Port</th><th>Title</th><th>Evidence</th><th>Confidence</th><th>Remediation</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-label="Hosts">
+        <h2>Hosts and services</h2>
+        <div id="hosts"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='chart.umd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
